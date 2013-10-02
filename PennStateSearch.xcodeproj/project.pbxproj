@@ -18,6 +18,13 @@
 		1E0CE9CB17FCBBDF00CA1E56 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0CE9CA17FCBBDF00CA1E56 /* Default-568h@2x.png */; };
 		1E0CE9CE17FCBBE000CA1E56 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E0CE9CC17FCBBE000CA1E56 /* MainStoryboard.storyboard */; };
 		1E0CE9D117FCBBE000CA1E56 /* JGSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */; };
+		1E0CE9E817FCBC5200CA1E56 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E117FCBC5200CA1E56 /* libcrypto.a */; };
+		1E0CE9E917FCBC5200CA1E56 /* liblber.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E217FCBC5200CA1E56 /* liblber.a */; };
+		1E0CE9EA17FCBC5200CA1E56 /* libldap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E317FCBC5200CA1E56 /* libldap.a */; };
+		1E0CE9EB17FCBC5200CA1E56 /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E417FCBC5200CA1E56 /* libsasl2.a */; };
+		1E0CE9EC17FCBC5200CA1E56 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E517FCBC5200CA1E56 /* libssl.a */; };
+		1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */; };
+		1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +44,22 @@
 		1E0CE9CD17FCBBE000CA1E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1E0CE9CF17FCBBE000CA1E56 /* JGSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGSViewController.h; sourceTree = "<group>"; };
 		1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGSViewController.m; sourceTree = "<group>"; };
+		1E0CE9D917FCBC5200CA1E56 /* lber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lber.h; sourceTree = "<group>"; };
+		1E0CE9DA17FCBC5200CA1E56 /* lber_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lber_types.h; sourceTree = "<group>"; };
+		1E0CE9DB17FCBC5200CA1E56 /* ldap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldap.h; sourceTree = "<group>"; };
+		1E0CE9DC17FCBC5200CA1E56 /* ldap_cdefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldap_cdefs.h; sourceTree = "<group>"; };
+		1E0CE9DD17FCBC5200CA1E56 /* ldap_features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldap_features.h; sourceTree = "<group>"; };
+		1E0CE9DE17FCBC5200CA1E56 /* ldap_schema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldap_schema.h; sourceTree = "<group>"; };
+		1E0CE9DF17FCBC5200CA1E56 /* ldap_utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldap_utf8.h; sourceTree = "<group>"; };
+		1E0CE9E117FCBC5200CA1E56 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		1E0CE9E217FCBC5200CA1E56 /* liblber.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = liblber.a; sourceTree = "<group>"; };
+		1E0CE9E317FCBC5200CA1E56 /* libldap.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libldap.a; sourceTree = "<group>"; };
+		1E0CE9E417FCBC5200CA1E56 /* libsasl2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsasl2.a; sourceTree = "<group>"; };
+		1E0CE9E517FCBC5200CA1E56 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		1E0CE9E617FCBC5200CA1E56 /* RHLDAPSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RHLDAPSearch.h; sourceTree = "<group>"; };
+		1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
+		1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryViewController.h; sourceTree = "<group>"; };
+		1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +70,11 @@
 				1E0CE9B517FCBBDF00CA1E56 /* UIKit.framework in Frameworks */,
 				1E0CE9B717FCBBDF00CA1E56 /* Foundation.framework in Frameworks */,
 				1E0CE9B917FCBBDF00CA1E56 /* CoreGraphics.framework in Frameworks */,
+				1E0CE9E817FCBC5200CA1E56 /* libcrypto.a in Frameworks */,
+				1E0CE9E917FCBC5200CA1E56 /* liblber.a in Frameworks */,
+				1E0CE9EA17FCBC5200CA1E56 /* libldap.a in Frameworks */,
+				1E0CE9EB17FCBC5200CA1E56 /* libsasl2.a in Frameworks */,
+				1E0CE9EC17FCBC5200CA1E56 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,11 +111,14 @@
 		1E0CE9BA17FCBBDF00CA1E56 /* PennStateSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1E0CE9D717FCBC5200CA1E56 /* ldap */,
 				1E0CE9C317FCBBDF00CA1E56 /* JGSAppDelegate.h */,
 				1E0CE9C417FCBBDF00CA1E56 /* JGSAppDelegate.m */,
 				1E0CE9CC17FCBBE000CA1E56 /* MainStoryboard.storyboard */,
 				1E0CE9CF17FCBBE000CA1E56 /* JGSViewController.h */,
 				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
+				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
+				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
 				1E0CE9BB17FCBBDF00CA1E56 /* Supporting Files */,
 			);
 			path = PennStateSearch;
@@ -105,6 +136,43 @@
 				1E0CE9CA17FCBBDF00CA1E56 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E0CE9D717FCBC5200CA1E56 /* ldap */ = {
+			isa = PBXGroup;
+			children = (
+				1E0CE9D817FCBC5200CA1E56 /* include */,
+				1E0CE9E017FCBC5200CA1E56 /* lib */,
+				1E0CE9E617FCBC5200CA1E56 /* RHLDAPSearch.h */,
+				1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */,
+			);
+			path = ldap;
+			sourceTree = "<group>";
+		};
+		1E0CE9D817FCBC5200CA1E56 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				1E0CE9D917FCBC5200CA1E56 /* lber.h */,
+				1E0CE9DA17FCBC5200CA1E56 /* lber_types.h */,
+				1E0CE9DB17FCBC5200CA1E56 /* ldap.h */,
+				1E0CE9DC17FCBC5200CA1E56 /* ldap_cdefs.h */,
+				1E0CE9DD17FCBC5200CA1E56 /* ldap_features.h */,
+				1E0CE9DE17FCBC5200CA1E56 /* ldap_schema.h */,
+				1E0CE9DF17FCBC5200CA1E56 /* ldap_utf8.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		1E0CE9E017FCBC5200CA1E56 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1E0CE9E117FCBC5200CA1E56 /* libcrypto.a */,
+				1E0CE9E217FCBC5200CA1E56 /* liblber.a */,
+				1E0CE9E317FCBC5200CA1E56 /* libldap.a */,
+				1E0CE9E417FCBC5200CA1E56 /* libsasl2.a */,
+				1E0CE9E517FCBC5200CA1E56 /* libssl.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +245,8 @@
 				1E0CE9C117FCBBDF00CA1E56 /* main.m in Sources */,
 				1E0CE9C517FCBBDF00CA1E56 /* JGSAppDelegate.m in Sources */,
 				1E0CE9D117FCBBE000CA1E56 /* JGSViewController.m in Sources */,
+				1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */,
+				1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +334,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PennStateSearch/PennStateSearch-Prefix.pch";
 				INFOPLIST_FILE = "PennStateSearch/PennStateSearch-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PennStateSearch/ldap/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = PennStateSearch/ldap/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -275,7 +350,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PennStateSearch/PennStateSearch-Prefix.pch";
 				INFOPLIST_FILE = "PennStateSearch/PennStateSearch-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/PennStateSearch/ldap/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = PennStateSearch/ldap/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
