@@ -25,6 +25,7 @@
 		1E0CE9EC17FCBC5200CA1E56 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0CE9E517FCBC5200CA1E56 /* libssl.a */; };
 		1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */; };
 		1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */; };
+		1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D32C17FDFDB100DD2B8E /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RHLDAPSearch.m; sourceTree = "<group>"; };
 		1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryViewController.h; sourceTree = "<group>"; };
 		1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryViewController.m; sourceTree = "<group>"; };
+		1E26D32B17FDFDB100DD2B8E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		1E26D32C17FDFDB100DD2B8E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
 				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
 				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
+				1E26D32B17FDFDB100DD2B8E /* Model.h */,
+				1E26D32C17FDFDB100DD2B8E /* Model.m */,
 				1E0CE9BB17FCBBDF00CA1E56 /* Supporting Files */,
 			);
 			path = PennStateSearch;
@@ -247,6 +252,7 @@
 				1E0CE9D117FCBBE000CA1E56 /* JGSViewController.m in Sources */,
 				1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */,
 				1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */,
+				1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +385,7 @@
 				1E0CE9D617FCBBE000CA1E56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

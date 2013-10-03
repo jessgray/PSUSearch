@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
 @interface JGSViewController : UIViewController <UITextFieldDelegate>
-
+@property (retain, nonatomic) Model *model;
 @end

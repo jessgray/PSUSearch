@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
-@protocol DirectoryDelegete <NSObject>
+@protocol DirectoryDelegete <NSObject> 
 
 -(void)dismissMe;
 
 @end
 
-@interface DirectoryViewController : UIViewController
+@interface DirectoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, assign) id<DirectoryDelegete> delegate;
+@property (nonatomic, strong) Model *tableModel;
 @end

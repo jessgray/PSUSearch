@@ -8,16 +8,29 @@
 
 #import "JGSViewController.h"
 #import "DirectoryViewController.h"
+#import "Model.h"
 
 #define kKeyboardHeight 216
 
 @interface JGSViewController () <DirectoryDelegete>
 @property (strong, nonatomic) IBOutlet UIScrollView *mainView;
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *accessIdTextField;
 
+- (IBAction)searchPressed:(id)sender;
 
 @end
 
 @implementation JGSViewController 
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if(self) {
+        _model = [[Model alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -59,6 +72,18 @@
     
 }
 
+
+- (IBAction)searchPressed:(id)sender {
+    
+    NSString *first, *last, *accessId;
+    
+    first = [self.firstNameTextField text];
+    last = [self.lastNameTextField text];
+    accessId = [self.accessIdTextField text];
+    
+    [self.model searchWithLast:last first:first accessId:accessId];
+}
+
 #pragma mark - Delegate
 
 -(void)dismissMe {
@@ -71,7 +96,40 @@
     if([segue.identifier isEqualToString:@"DirectorySegue"]) {
         DirectoryViewController *directoryViewController = segue.destinationViewController;
         directoryViewController.delegate = self;
+        directoryViewController.tableModel = self.model;
     }
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if(self.lastNameTextField.text.length == 0 && self.accessIdTextField.text.length == 0) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+#pragma mark - Data Source
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.model numResults];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static  NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (nil==cell) {  // this step not needed for prototype cells
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = [self.model nameForIndex:indexPath.row];
+    cell.detailTextLabel.text = [self.model addressForIndex:indexPath.row];
+    
+    return cell;
+}
+    
 @end
