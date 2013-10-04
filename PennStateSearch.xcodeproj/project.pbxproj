@@ -26,6 +26,8 @@
 		1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9E717FCBC5200CA1E56 /* RHLDAPSearch.m */; };
 		1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */; };
 		1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D32C17FDFDB100DD2B8E /* Model.m */; };
+		1E26D32F17FE49D400DD2B8E /* psusmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D32E17FE49D400DD2B8E /* psusmall.jpg */; };
+		1E26D33117FE5F4100DD2B8E /* searchbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D33017FE5F4100DD2B8E /* searchbutton.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryViewController.m; sourceTree = "<group>"; };
 		1E26D32B17FDFDB100DD2B8E /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		1E26D32C17FDFDB100DD2B8E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		1E26D32E17FE49D400DD2B8E /* psusmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = psusmall.jpg; sourceTree = "<group>"; };
+		1E26D33017FE5F4100DD2B8E /* searchbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbutton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 		1E0CE9BA17FCBBDF00CA1E56 /* PennStateSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1E26D33017FE5F4100DD2B8E /* searchbutton.png */,
+				1E26D32E17FE49D400DD2B8E /* psusmall.jpg */,
 				1E0CE9D717FCBC5200CA1E56 /* ldap */,
 				1E0CE9C317FCBBDF00CA1E56 /* JGSAppDelegate.h */,
 				1E0CE9C417FCBBDF00CA1E56 /* JGSAppDelegate.m */,
@@ -237,6 +243,8 @@
 				1E0CE9C917FCBBDF00CA1E56 /* Default@2x.png in Resources */,
 				1E0CE9CB17FCBBDF00CA1E56 /* Default-568h@2x.png in Resources */,
 				1E0CE9CE17FCBBE000CA1E56 /* MainStoryboard.storyboard in Resources */,
+				1E26D32F17FE49D400DD2B8E /* psusmall.jpg in Resources */,
+				1E26D33117FE5F4100DD2B8E /* searchbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

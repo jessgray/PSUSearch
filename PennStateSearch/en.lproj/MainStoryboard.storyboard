@@ -15,6 +15,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJD-Ku-3ss">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-0h-mkp">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="KHR-dv-3a0"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -50,10 +53,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUA-j9-ITd">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="73" id="4hI-s8-Hot"/>
+                                            <constraint firstAttribute="height" constant="44" id="muC-xw-GLK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Search">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Search" backgroundImage="searchbutton.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -64,20 +68,41 @@
                                             <segue destination="KQ1-hm-CCe" kind="modal" identifier="DirectorySegue" id="whO-LD-kNq"/>
                                         </connections>
                                     </button>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="You must provide at least a last name or access id!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="286" translatesAutoresizingMaskIntoConstraints="NO" id="AII-yO-KMH">
+                                        <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PdO-84-WoP"/>
+                                            <constraint firstAttribute="width" constant="286" id="YO6-aS-Phb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="psusmall.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="o1t-U7-vvF">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="103" id="4H9-wp-Buh"/>
+                                            <constraint firstAttribute="height" constant="69" id="mTm-f3-haD"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="AII-yO-KMH" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="119" id="4vU-6c-E1w"/>
+                                    <constraint firstItem="AII-yO-KMH" firstAttribute="centerX" secondItem="xKJ-ng-b1d" secondAttribute="centerX" type="default" id="7Hm-Fh-7o5"/>
+                                    <constraint firstItem="A2B-FD-CPD" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="410" scoringType="5" id="CGg-S6-xTo"/>
+                                    <constraint firstItem="AII-yO-KMH" firstAttribute="centerX" secondItem="VLV-0h-mkp" secondAttribute="centerX" type="default" id="FUn-7K-eep"/>
+                                    <constraint firstItem="o1t-U7-vvF" firstAttribute="centerX" secondItem="xKJ-ng-b1d" secondAttribute="centerX" type="default" id="ItS-Xm-T0y"/>
+                                    <constraint firstAttribute="bottom" secondItem="JUA-j9-ITd" secondAttribute="bottom" constant="34" id="KR4-JH-3xI"/>
                                     <constraint firstItem="XfJ-T3-PaA" firstAttribute="leading" secondItem="iJD-Ku-3ss" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NhY-vq-Td4"/>
                                     <constraint firstItem="xKJ-ng-b1d" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="69" id="Ube-97-ShJ"/>
-                                    <constraint firstItem="XfJ-T3-PaA" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="221" id="b4C-4i-2K1"/>
-                                    <constraint firstItem="xKJ-ng-b1d" firstAttribute="centerX" secondItem="VLV-0h-mkp" secondAttribute="centerX" type="default" id="bgc-b2-OCS"/>
+                                    <constraint firstItem="XfJ-T3-PaA" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="251" id="Wnz-Ut-Oi3"/>
                                     <constraint firstAttribute="trailing" secondItem="XfJ-T3-PaA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dZ0-qM-GBx"/>
                                     <constraint firstAttribute="trailing" secondItem="VLV-0h-mkp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="e2A-bX-i8f"/>
-                                    <constraint firstAttribute="bottom" secondItem="A2B-FD-CPD" secondAttribute="bottom" constant="139" id="iV7-Ke-0CS"/>
-                                    <constraint firstAttribute="bottom" secondItem="JUA-j9-ITd" secondAttribute="bottom" constant="51" id="m5W-8Y-whi"/>
+                                    <constraint firstItem="o1t-U7-vvF" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" type="default" id="s8Y-I7-won"/>
+                                    <constraint firstItem="VLV-0h-mkp" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="192" id="sDe-Am-Ubg"/>
                                     <constraint firstItem="A2B-FD-CPD" firstAttribute="centerX" secondItem="XfJ-T3-PaA" secondAttribute="centerX" type="default" id="sWK-f7-uSj"/>
+                                    <constraint firstAttribute="bottom" secondItem="A2B-FD-CPD" secondAttribute="bottom" constant="108" id="ta4-vf-R7p"/>
                                     <constraint firstItem="VLV-0h-mkp" firstAttribute="leading" secondItem="iJD-Ku-3ss" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vWy-Wd-R0t"/>
-                                    <constraint firstItem="VLV-0h-mkp" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="162" id="y93-Bh-4dh"/>
                                     <constraint firstItem="A2B-FD-CPD" firstAttribute="centerX" secondItem="JUA-j9-ITd" secondAttribute="centerX" type="default" id="yI1-ca-rNb"/>
                                 </constraints>
                             </view>
@@ -86,13 +111,12 @@
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="trailing" secondItem="MAk-Lr-k7Y" secondAttribute="trailing" type="default" id="Aq7-Hb-1Mu"/>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="top" secondItem="MAk-Lr-k7Y" secondAttribute="top" type="default" id="IFD-wT-y9w"/>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="bottom" secondItem="MAk-Lr-k7Y" secondAttribute="bottom" type="default" id="QhU-Ij-eym"/>
-                            <constraint firstItem="iJD-Ku-3ss" firstAttribute="centerX" secondItem="MAk-Lr-k7Y" secondAttribute="centerX" type="default" id="Rqv-fO-03U"/>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="leading" secondItem="MAk-Lr-k7Y" secondAttribute="leading" type="default" id="x6u-zM-BC7"/>
-                            <constraint firstItem="iJD-Ku-3ss" firstAttribute="centerY" secondItem="MAk-Lr-k7Y" secondAttribute="centerY" type="default" id="yqJ-x4-1nr"/>
                         </constraints>
                     </scrollView>
                     <connections>
                         <outlet property="accessIdTextField" destination="A2B-FD-CPD" id="eci-a9-Hsa"/>
+                        <outlet property="errorMessage" destination="AII-yO-KMH" id="UJG-KD-gzs"/>
                         <outlet property="firstNameTextField" destination="VLV-0h-mkp" id="C4B-Qb-OmJ"/>
                         <outlet property="lastNameTextField" destination="XfJ-T3-PaA" id="hgT-AG-5Eq"/>
                         <outlet property="mainView" destination="MAk-Lr-k7Y" id="hlZ-Ge-pjv"/>
@@ -143,6 +167,10 @@
             <point key="canvasLocation" x="1001" y="87"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="psusmall.jpg" width="80" height="50"/>
+        <image name="searchbutton.png" width="73" height="44"/>
+    </resources>
     <classes>
         <class className="DirectoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryViewController.h"/>
@@ -155,6 +183,7 @@
             <relationships>
                 <relationship kind="action" name="searchPressed:"/>
                 <relationship kind="outlet" name="accessIdTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorMessage" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="mainView" candidateClass="UIScrollView"/>

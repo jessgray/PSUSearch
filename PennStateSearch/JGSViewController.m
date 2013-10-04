@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *accessIdTextField;
+@property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 
 - (IBAction)searchPressed:(id)sender;
 
@@ -54,6 +55,13 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     
+    if([textField.placeholder isEqualToString:@"Last Name"]) {
+        [self textFieldsCorrect:YES];
+    }
+    if([textField.placeholder isEqualToString:@"Access ID"]) {
+        [self textFieldsCorrect:YES];
+    }
+    
     // Only set content offset if the keyboard will obscure the textField
     if (textField.frame.origin.y+textField.frame.size.height > self.view.frame.size.height - kKeyboardHeight) {
         [self.mainView setContentOffset:(CGPoint){self.mainView.contentInset.bottom, kKeyboardHeight} animated:YES];
@@ -64,12 +72,40 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     
+    if([textField.placeholder isEqualToString:@"First Name"] && (self.lastNameTextField.text.length == 0 && self.accessIdTextField.text.length == 0)) {
+        [self textFieldsCorrect:NO];
+    }
+    if([textField.placeholder isEqualToString:@"Last Name"] && (self.lastNameTextField.text.length == 0 && self.accessIdTextField.text.length == 0)) {
+        [self textFieldsCorrect:NO];
+    }
+    
+    if([textField.placeholder isEqualToString:@"Access ID"] && (self.lastNameTextField.text.length == 0 && self.accessIdTextField.text.length == 0)) {
+        [self textFieldsCorrect:NO];
+    }
+    
     // Only reset content offset if the keyboard was obscuring the textField
     if (textField.frame.origin.y+textField.frame.size.height > self.view.frame.size.height - kKeyboardHeight) {
         [self.mainView setContentOffset:(CGPoint){0, 0} animated:YES];
     }
     
     
+}
+
+- (void)textFieldsCorrect:(BOOL)correct {
+    
+    [self.errorMessage setText:@"You must provide at least a last name or access id!"];
+    self.errorMessage.hidden = correct;
+    
+    UIColor *wrongColor = [UIColor colorWithRed:231.0/255.0 green:76.0/255.0 blue:60.0/255.0 alpha:1.0];
+    
+    if(correct) {
+        self.firstNameTextField.backgroundColor = [UIColor whiteColor];
+        self.lastNameTextField.backgroundColor = [UIColor whiteColor];
+        self.accessIdTextField.backgroundColor = [UIColor whiteColor];
+    } else {
+        self.lastNameTextField.backgroundColor = wrongColor;
+        self.accessIdTextField.backgroundColor = wrongColor;
+    }
 }
 
 
@@ -81,12 +117,21 @@
     last = [self.lastNameTextField text];
     accessId = [self.accessIdTextField text];
     
-    [self.model searchWithLast:last first:first accessId:accessId];
+    if(last.length == 0 && accessId.length == 0) {
+        [self textFieldsCorrect:NO];
+    } else {
+        [self.model searchWithLast:last first:first accessId:accessId];
+    }
+    
+    
 }
 
 #pragma mark - Delegate
 
 -(void)dismissMe {
+    [self.firstNameTextField setText:@""];
+    [self.lastNameTextField setText:@""];
+    [self.accessIdTextField setText:@""];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -106,30 +151,6 @@
     } else {
         return YES;
     }
-}
-
-#pragma mark - Data Source
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.model numResults];
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static  NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (nil==cell) {  // this step not needed for prototype cells
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = [self.model nameForIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.model addressForIndex:indexPath.row];
-    
-    return cell;
 }
     
 @end

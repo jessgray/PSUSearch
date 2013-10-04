@@ -9,6 +9,7 @@
 #import "Model.h"
 
 @interface Model ()
+@property (nonatomic, strong) RHLDAPSearch *searchURL;
 @property (strong, nonatomic)NSArray *searchResult;
 @end
 

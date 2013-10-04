@@ -10,7 +10,6 @@
 #import "RHLDAPSearch.h"
 
 @interface Model : NSObject
-@property (nonatomic, strong) RHLDAPSearch *searchURL;
 
 - (void)searchWithLast:(NSString*)lastName first:(NSString *)firstName accessId:(NSString*)accessId;
 - (NSInteger)numResults;
