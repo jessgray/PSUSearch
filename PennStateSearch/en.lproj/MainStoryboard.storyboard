@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bZA-3O-n2E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,24 +9,12 @@
             <objects>
                 <viewController id="2" customClass="JGSViewController" sceneMemberID="viewController">
                     <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="MAk-Lr-k7Y">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJD-Ku-3ss">
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="b9N-RZ-ecz">
-                                        <segments>
-                                            <segment title="Directory Search"/>
-                                            <segment title="Campus Buildings"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="changeView:" destination="2" eventType="valueChanged" id="AHj-n5-q4U"/>
-                                        </connections>
-                                    </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-0h-mkp">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="KHR-dv-3a0"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -96,33 +84,31 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.10196078431372549" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="b9N-RZ-ecz" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" type="default" id="2gh-ZX-tnR"/>
+                                    <constraint firstAttribute="bottom" secondItem="JUA-j9-ITd" secondAttribute="bottom" constant="123" id="5lg-o8-kJN"/>
                                     <constraint firstItem="AII-yO-KMH" firstAttribute="centerX" secondItem="xKJ-ng-b1d" secondAttribute="centerX" type="default" id="7Hm-Fh-7o5"/>
-                                    <constraint firstItem="b9N-RZ-ecz" firstAttribute="trailing" secondItem="iJD-Ku-3ss" secondAttribute="trailing" type="default" id="F4f-6R-mDD"/>
+                                    <constraint firstItem="AII-yO-KMH" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="114" id="BAf-jM-1AD"/>
+                                    <constraint firstAttribute="height" constant="548" id="EfG-qL-b1I"/>
                                     <constraint firstItem="AII-yO-KMH" firstAttribute="centerX" secondItem="VLV-0h-mkp" secondAttribute="centerX" type="default" id="FUn-7K-eep"/>
-                                    <constraint firstItem="VLV-0h-mkp" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="236" id="FWC-zT-jN9"/>
-                                    <constraint firstItem="o1t-U7-vvF" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="44" id="Ivq-13-UZ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="A2B-FD-CPD" secondAttribute="bottom" constant="207" id="I44-hX-qxH"/>
+                                    <constraint firstItem="VLV-0h-mkp" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="182" id="JnX-XB-ze6"/>
                                     <constraint firstItem="XfJ-T3-PaA" firstAttribute="leading" secondItem="iJD-Ku-3ss" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NhY-vq-Td4"/>
-                                    <constraint firstAttribute="bottom" secondItem="JUA-j9-ITd" secondAttribute="bottom" constant="86" id="YR3-RR-CRj"/>
-                                    <constraint firstAttribute="bottom" secondItem="XfJ-T3-PaA" secondAttribute="bottom" constant="223" id="ZkH-vw-BwD"/>
-                                    <constraint firstItem="AII-yO-KMH" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="163" id="cOB-Sa-PL8"/>
+                                    <constraint firstItem="o1t-U7-vvF" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="6" id="dQD-Bd-cNd"/>
                                     <constraint firstAttribute="trailing" secondItem="XfJ-T3-PaA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dZ0-qM-GBx"/>
                                     <constraint firstAttribute="trailing" secondItem="VLV-0h-mkp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="e2A-bX-i8f"/>
                                     <constraint firstItem="o1t-U7-vvF" firstAttribute="centerX" secondItem="xKJ-ng-b1d" secondAttribute="centerX" type="default" id="jPw-wf-MA9"/>
-                                    <constraint firstAttribute="bottom" secondItem="A2B-FD-CPD" secondAttribute="bottom" constant="160" id="lai-u8-r8i"/>
-                                    <constraint firstItem="XfJ-T3-PaA" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="295" scoringType="5" id="oRN-eB-M1I"/>
-                                    <constraint firstItem="b9N-RZ-ecz" firstAttribute="leading" secondItem="iJD-Ku-3ss" secondAttribute="leading" type="default" id="qF3-NI-0Wx"/>
-                                    <constraint firstItem="xKJ-ng-b1d" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="113" id="qsk-P1-aoV"/>
+                                    <constraint firstItem="XfJ-T3-PaA" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="241" id="mqP-TD-Kxh"/>
                                     <constraint firstItem="A2B-FD-CPD" firstAttribute="centerX" secondItem="XfJ-T3-PaA" secondAttribute="centerX" type="default" id="sWK-f7-uSj"/>
                                     <constraint firstItem="VLV-0h-mkp" firstAttribute="leading" secondItem="iJD-Ku-3ss" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vWy-Wd-R0t"/>
                                     <constraint firstItem="A2B-FD-CPD" firstAttribute="centerX" secondItem="JUA-j9-ITd" secondAttribute="centerX" type="default" id="yI1-ca-rNb"/>
+                                    <constraint firstItem="xKJ-ng-b1d" firstAttribute="top" secondItem="iJD-Ku-3ss" secondAttribute="top" constant="75" id="zSt-BQ-3vA"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="trailing" secondItem="MAk-Lr-k7Y" secondAttribute="trailing" type="default" id="Aq7-Hb-1Mu"/>
+                            <constraint firstAttribute="bottom" secondItem="iJD-Ku-3ss" secondAttribute="bottom" constant="-93" id="F6i-JV-n6e"/>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="top" secondItem="MAk-Lr-k7Y" secondAttribute="top" type="default" id="IFD-wT-y9w"/>
-                            <constraint firstItem="iJD-Ku-3ss" firstAttribute="bottom" secondItem="MAk-Lr-k7Y" secondAttribute="bottom" type="default" id="QhU-Ij-eym"/>
+                            <constraint firstItem="iJD-Ku-3ss" firstAttribute="centerX" secondItem="MAk-Lr-k7Y" secondAttribute="centerX" type="default" id="tWP-KW-Qd7"/>
                             <constraint firstItem="iJD-Ku-3ss" firstAttribute="leading" secondItem="MAk-Lr-k7Y" secondAttribute="leading" type="default" id="x6u-zM-BC7"/>
                         </constraints>
                     </scrollView>
@@ -137,7 +123,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="315" y="77"/>
+            <point key="canvasLocation" x="1360" y="-297"/>
+        </scene>
+        <!--View Controller - Campus Buildings-->
+        <scene sceneID="MRs-qz-wCj">
+            <objects>
+                <viewController id="a15-wP-YyN" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FdM-WH-IYU">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Campus Buildings" id="YeH-vx-cfN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oIt-gu-mPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="406"/>
         </scene>
         <!--Directory View Controller - Table View Controller-->
         <scene sceneID="f8R-WW-cm2">
@@ -178,13 +179,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ls-Nf-koK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="77"/>
+            <point key="canvasLocation" x="1840" y="-297"/>
+        </scene>
+        <!--Navigation Controller - Directory Search-->
+        <scene sceneID="DjY-EV-dtM">
+            <objects>
+                <navigationController id="Tit-B7-2sx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Directory Search" id="dyL-2v-qb6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UyR-P1-yx6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="etm-J9-3dd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFO-uY-Cq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869" y="-287"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JuA-2r-8qV">
+            <objects>
+                <tabBarController id="bZA-3O-n2E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="k6p-wa-Jdf">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Tit-B7-2sx" kind="relationship" relationship="viewControllers" id="121-2f-9A6"/>
+                        <segue destination="a15-wP-YyN" kind="relationship" relationship="viewControllers" id="KQb-nh-16l"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv3-12-h5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315" y="77"/>
         </scene>
     </scenes>
     <resources>
         <image name="psusmall.jpg" width="80" height="50"/>
         <image name="searchbutton.png" width="73" height="44"/>
     </resources>
+    <classes>
+        <class className="DirectoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissPressed:"/>
+            </relationships>
+        </class>
+        <class className="JGSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JGSViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeView:"/>
+                <relationship kind="action" name="searchPressed:"/>
+                <relationship kind="outlet" name="accessIdTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
