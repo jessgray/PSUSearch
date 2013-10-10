@@ -60,6 +60,7 @@
 		1EC8FABF1806448E007FC5D2 /* engunit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA9F1806448E007FC5D2 /* engunit.jpg */; };
 		1EC8FAC01806448E007FC5D2 /* smeal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAA01806448E007FC5D2 /* smeal.jpg */; };
 		1EC8FAC11806448E007FC5D2 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAA11806448E007FC5D2 /* buildings.plist */; };
+		1EC8FAC818064D8A007FC5D2 /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		1EC8FA9F1806448E007FC5D2 /* engunit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = engunit.jpg; sourceTree = "<group>"; };
 		1EC8FAA01806448E007FC5D2 /* smeal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smeal.jpg; sourceTree = "<group>"; };
 		1EC8FAA11806448E007FC5D2 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
+		1EC8FAC618064D8A007FC5D2 /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingModel.h; sourceTree = "<group>"; };
+		1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,18 +185,10 @@
 		1E0CE9BA17FCBBDF00CA1E56 /* PennStateSearch */ = {
 			isa = PBXGroup;
 			children = (
-				1E26D33017FE5F4100DD2B8E /* searchbutton.png */,
-				1E26D32E17FE49D400DD2B8E /* psusmall.jpg */,
+				1EC8FAC4180649DC007FC5D2 /* View */,
+				1EC8FAC3180649D1007FC5D2 /* Controllers */,
+				1EC8FAC2180649CA007FC5D2 /* Models */,
 				1E0CE9D717FCBC5200CA1E56 /* ldap */,
-				1E0CE9C317FCBBDF00CA1E56 /* JGSAppDelegate.h */,
-				1E0CE9C417FCBBDF00CA1E56 /* JGSAppDelegate.m */,
-				1E0CE9CC17FCBBE000CA1E56 /* MainStoryboard.storyboard */,
-				1E0CE9CF17FCBBE000CA1E56 /* JGSViewController.h */,
-				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
-				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
-				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
-				1E26D32B17FDFDB100DD2B8E /* Model.h */,
-				1E26D32C17FDFDB100DD2B8E /* Model.m */,
 				1E0CE9BB17FCBBDF00CA1E56 /* Supporting Files */,
 			);
 			path = PennStateSearch;
@@ -202,14 +197,14 @@
 		1E0CE9BB17FCBBDF00CA1E56 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1EC8FAC518064A48007FC5D2 /* images */,
 				1EC8FA801806448E007FC5D2 /* Buildings */,
+				1E0CE9C417FCBBDF00CA1E56 /* JGSAppDelegate.m */,
+				1E0CE9C317FCBBDF00CA1E56 /* JGSAppDelegate.h */,
 				1E0CE9BC17FCBBDF00CA1E56 /* PennStateSearch-Info.plist */,
 				1E0CE9BD17FCBBDF00CA1E56 /* InfoPlist.strings */,
 				1E0CE9C017FCBBDF00CA1E56 /* main.m */,
 				1E0CE9C217FCBBDF00CA1E56 /* PennStateSearch-Prefix.pch */,
-				1E0CE9C617FCBBDF00CA1E56 /* Default.png */,
-				1E0CE9C817FCBBDF00CA1E56 /* Default@2x.png */,
-				1E0CE9CA17FCBBDF00CA1E56 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,6 +291,48 @@
 				1EC8FAA01806448E007FC5D2 /* smeal.jpg */,
 			);
 			path = buildings;
+			sourceTree = "<group>";
+		};
+		1EC8FAC2180649CA007FC5D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E26D32B17FDFDB100DD2B8E /* Model.h */,
+				1E26D32C17FDFDB100DD2B8E /* Model.m */,
+				1EC8FAC618064D8A007FC5D2 /* BuildingModel.h */,
+				1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1EC8FAC3180649D1007FC5D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E0CE9CF17FCBBE000CA1E56 /* JGSViewController.h */,
+				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
+				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
+				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		1EC8FAC4180649DC007FC5D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E0CE9CC17FCBBE000CA1E56 /* MainStoryboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1EC8FAC518064A48007FC5D2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1E26D33017FE5F4100DD2B8E /* searchbutton.png */,
+				1E26D32E17FE49D400DD2B8E /* psusmall.jpg */,
+				1E0CE9C617FCBBDF00CA1E56 /* Default.png */,
+				1E0CE9C817FCBBDF00CA1E56 /* Default@2x.png */,
+				1E0CE9CA17FCBBDF00CA1E56 /* Default-568h@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +442,7 @@
 				1E0CE9ED17FCBC5200CA1E56 /* RHLDAPSearch.m in Sources */,
 				1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */,
 				1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */,
+				1EC8FAC818064D8A007FC5D2 /* BuildingModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

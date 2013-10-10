@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 
 - (IBAction)searchPressed:(id)sender;
+- (IBAction)changeView:(id)sender;
 
 @end
 
@@ -123,6 +124,17 @@
         [self.model searchWithLast:last first:first accessId:accessId];
     }
     
+    
+}
+
+- (IBAction)changeView:(id)sender {
+    UISegmentedControl *segmentedControl = sender;
+    NSInteger choice = segmentedControl.selectedSegmentIndex;
+    if (choice == 0) {
+        
+    } else {
+        
+    }
     
 }
 
