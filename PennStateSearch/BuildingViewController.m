@@ -87,6 +87,13 @@
     
     cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row];
     
+    // Put disclosure indicators on buildings that have a photo
+    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row];
+    
+    if(buildingPhoto != nil) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
     return cell;
 }
 
@@ -141,13 +148,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+   
 }
 
 @end

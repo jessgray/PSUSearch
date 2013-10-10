@@ -65,9 +65,13 @@ static NSString *const filename = @"Buildings.plist";
 - (UIImage *)buildingImageForIndex:(NSInteger)index {
     NSDictionary *dictionary = [self.buildings objectAtIndex:index];
     NSString *buildingPhoto = [dictionary objectForKey:@"photo"];
-    NSString *path = [[NSBundle mainBundle] pathForResource:buildingPhoto ofType:@".jpg"];
-    UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
-    return image;
+    if(buildingPhoto.length == 0) {
+        return nil;
+    } else {
+        NSString *path = [[NSBundle mainBundle] pathForResource:buildingPhoto ofType:@".jpg"];
+        UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
+        return image;
+    }
 }
 
 - (void)sortByBuildingName {
