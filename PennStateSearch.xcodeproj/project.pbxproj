@@ -61,6 +61,10 @@
 		1EC8FAC01806448E007FC5D2 /* smeal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAA01806448E007FC5D2 /* smeal.jpg */; };
 		1EC8FAC11806448E007FC5D2 /* buildings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAA11806448E007FC5D2 /* buildings.plist */; };
 		1EC8FAC818064D8A007FC5D2 /* BuildingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */; };
+		1EC8FACB180717FF007FC5D2 /* man.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAC9180717FF007FC5D2 /* man.png */; };
+		1EC8FACC180717FF007FC5D2 /* pyramid.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FACA180717FF007FC5D2 /* pyramid.png */; };
+		1EC8FACE180718B7007FC5D2 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FACD180718B7007FC5D2 /* phone-book.png */; };
+		1EC8FAD118074730007FC5D2 /* BuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +138,11 @@
 		1EC8FAA11806448E007FC5D2 /* buildings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildings.plist; sourceTree = "<group>"; };
 		1EC8FAC618064D8A007FC5D2 /* BuildingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingModel.h; sourceTree = "<group>"; };
 		1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingModel.m; sourceTree = "<group>"; };
+		1EC8FAC9180717FF007FC5D2 /* man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = man.png; sourceTree = "<group>"; };
+		1EC8FACA180717FF007FC5D2 /* pyramid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pyramid.png; sourceTree = "<group>"; };
+		1EC8FACD180718B7007FC5D2 /* phone-book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-book.png"; sourceTree = "<group>"; };
+		1EC8FACF1807472F007FC5D2 /* BuildingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingViewController.h; sourceTree = "<group>"; };
+		1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +320,8 @@
 				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
 				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
 				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
+				1EC8FACF1807472F007FC5D2 /* BuildingViewController.h */,
+				1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +337,9 @@
 		1EC8FAC518064A48007FC5D2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1EC8FACD180718B7007FC5D2 /* phone-book.png */,
+				1EC8FAC9180717FF007FC5D2 /* man.png */,
+				1EC8FACA180717FF007FC5D2 /* pyramid.png */,
 				1E26D33017FE5F4100DD2B8E /* searchbutton.png */,
 				1E26D32E17FE49D400DD2B8E /* psusmall.jpg */,
 				1E0CE9C617FCBBDF00CA1E56 /* Default.png */,
@@ -426,6 +440,9 @@
 				1EC8FABF1806448E007FC5D2 /* engunit.jpg in Resources */,
 				1EC8FAC01806448E007FC5D2 /* smeal.jpg in Resources */,
 				1EC8FAC11806448E007FC5D2 /* buildings.plist in Resources */,
+				1EC8FACB180717FF007FC5D2 /* man.png in Resources */,
+				1EC8FACC180717FF007FC5D2 /* pyramid.png in Resources */,
+				1EC8FACE180718B7007FC5D2 /* phone-book.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +460,7 @@
 				1E0CE9F017FCD0F200CA1E56 /* DirectoryViewController.m in Sources */,
 				1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */,
 				1EC8FAC818064D8A007FC5D2 /* BuildingModel.m in Sources */,
+				1EC8FAD118074730007FC5D2 /* BuildingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

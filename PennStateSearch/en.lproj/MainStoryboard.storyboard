@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Campus Buildings" id="YeH-vx-cfN"/>
+                    <tabBarItem key="tabBarItem" title="Campus Buildings" image="pyramid.png" id="YeH-vx-cfN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIt-gu-mPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +185,7 @@
         <scene sceneID="DjY-EV-dtM">
             <objects>
                 <navigationController id="Tit-B7-2sx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Directory Search" id="dyL-2v-qb6"/>
+                    <tabBarItem key="tabBarItem" title="Directory Search" image="phone-book.png" id="dyL-2v-qb6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UyR-P1-yx6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -221,7 +221,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="phone-book.png" width="30" height="30"/>
         <image name="psusmall.jpg" width="80" height="50"/>
+        <image name="pyramid.png" width="30" height="30"/>
         <image name="searchbutton.png" width="73" height="44"/>
     </resources>
     <classes>

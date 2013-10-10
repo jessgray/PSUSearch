@@ -124,7 +124,6 @@
         [self.model searchWithLast:last first:first accessId:accessId];
     }
     
-    
 }
 
 - (IBAction)changeView:(id)sender {

@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BuildingModel : NSObject
-
+- (NSInteger)count;
+- (NSString *)buildingForIndex:(NSInteger)index;
+- (UIImage *)buildingImageForIndex:(NSInteger)index;
 @end
