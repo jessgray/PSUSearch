@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BuildingViewController : UITableViewController
-
+@property BOOL isDetailedView;
 @end

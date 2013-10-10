@@ -19,6 +19,7 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         _buildingModel = [[BuildingModel alloc] init];
+        _isDetailedView = NO;
     }
     return self;
 }
@@ -32,10 +33,18 @@
     return self;
 }
 
+- (void)updateTitle {
+    if(self.isDetailedView) {
+        // Put detailed view title here
+    } else {
+        self.title = @"Campus Buildings";
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self updateTitle];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -48,6 +57,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -118,6 +128,14 @@
     return YES;
 }
 */
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    BuildingViewController *viewController = segue.destinationViewController;
+    viewController.isDetailedView = YES;
+}
+
 
 #pragma mark - Table view delegate
 
