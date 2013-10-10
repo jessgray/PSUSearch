@@ -68,5 +68,36 @@
     return address;
 }
 
+- (NSString *)userIdForIndex: (NSInteger)index {
+    NSDictionary *dictionary = [self.searchResult objectAtIndex:index];
+    NSString *uid = [dictionary objectForKey:@"uid"][0];
+    return uid;
+}
+
+- (NSString *)emailForIndex: (NSInteger)index {
+    NSDictionary *dictionary = [self.searchResult objectAtIndex:index];
+    NSString *email = [dictionary objectForKey:@"psMailID"][0];
+    return email;
+}
+
+
+- (NSString *)campusForIndex: (NSInteger)index {
+    NSDictionary *dictionary = [self.searchResult objectAtIndex:index];
+    NSString *campus = [dictionary objectForKey:@"psCampus"][0];
+    return campus;
+}
+
+- (NSString *)majorForIndex: (NSInteger)index {
+    NSDictionary *dictionary = [self.searchResult objectAtIndex:index];
+    NSString *major = [dictionary objectForKey:@"psCurriculum"][0];
+    return major;
+}
+
+- (NSString *)classForIndex: (NSInteger)index {
+    NSDictionary *dictionary = [self.searchResult objectAtIndex:index];
+    NSString *class = [dictionary objectForKey:@"title"][0];
+    return class;
+}
+
 
 @end

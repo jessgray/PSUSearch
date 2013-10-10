@@ -15,4 +15,9 @@
 - (NSInteger)numResults;
 - (NSString *)nameForIndex: (NSInteger)index;
 - (NSString *)addressForIndex: (NSInteger)index;
+- (NSString *)userIdForIndex: (NSInteger)index;
+- (NSString *)emailForIndex: (NSInteger)index;
+- (NSString *)campusForIndex: (NSInteger)index;
+- (NSString *)majorForIndex: (NSInteger)index;
+- (NSString *)classForIndex: (NSInteger)index;
 @end

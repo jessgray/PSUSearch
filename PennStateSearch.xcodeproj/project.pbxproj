@@ -66,6 +66,7 @@
 		1EC8FACE180718B7007FC5D2 /* phone-book.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FACD180718B7007FC5D2 /* phone-book.png */; };
 		1EC8FAD118074730007FC5D2 /* BuildingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */; };
 		1EC8FAD418075D0D007FC5D2 /* BuildingInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAD318075D0D007FC5D2 /* BuildingInfoViewController.m */; };
+		1EC8FAD718076F73007FC5D2 /* DirectoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC8FAD618076F72007FC5D2 /* DirectoryDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +147,8 @@
 		1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingViewController.m; sourceTree = "<group>"; };
 		1EC8FAD218075D0D007FC5D2 /* BuildingInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInfoViewController.h; sourceTree = "<group>"; };
 		1EC8FAD318075D0D007FC5D2 /* BuildingInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInfoViewController.m; sourceTree = "<group>"; };
+		1EC8FAD518076F72007FC5D2 /* DirectoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryDetailViewController.h; sourceTree = "<group>"; };
+		1EC8FAD618076F72007FC5D2 /* DirectoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,8 @@
 				1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */,
 				1EC8FAD218075D0D007FC5D2 /* BuildingInfoViewController.h */,
 				1EC8FAD318075D0D007FC5D2 /* BuildingInfoViewController.m */,
+				1EC8FAD518076F72007FC5D2 /* DirectoryDetailViewController.h */,
+				1EC8FAD618076F72007FC5D2 /* DirectoryDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				1EC8FAC818064D8A007FC5D2 /* BuildingModel.m in Sources */,
 				1EC8FAD118074730007FC5D2 /* BuildingViewController.m in Sources */,
 				1EC8FAD418075D0D007FC5D2 /* BuildingInfoViewController.m in Sources */,
+				1EC8FAD718076F73007FC5D2 /* DirectoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
