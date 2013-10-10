@@ -8,9 +8,12 @@
 
 #import "BuildingViewController.h"
 #import "BuildingModel.h"
+#import "BuildingInfoViewController.h"
 
 @interface BuildingViewController ()
 @property (nonatomic, strong) BuildingModel *buildingModel;
+@property (nonatomic, strong) NSString *selectedBuilding;
+@property (nonatomic, strong) UIImage *selectedBuildingImage;
 @end
 
 @implementation BuildingViewController
@@ -19,7 +22,6 @@
     self = [super initWithCoder:aDecoder];
     if(self) {
         _buildingModel = [[BuildingModel alloc] init];
-        _isDetailedView = NO;
     }
     return self;
 }
@@ -34,11 +36,7 @@
 }
 
 - (void)updateTitle {
-    if(self.isDetailedView) {
-        // Put detailed view title here
-    } else {
         self.title = @"Campus Buildings";
-    }
 }
 
 - (void)viewDidLoad
@@ -75,25 +73,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier;
+    
+    // Decide which prototype cell to use for buildings
+    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row];
+    
+    if(buildingPhoto != nil) {
+        CellIdentifier = @"ImageCell";
+    } else {
+        CellIdentifier = @"NoImageCell";
+    }
+        
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(nil==cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Sort buildings in ascending order
-    //[self.buildingModel sortByBuildingName];
-    
     cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row];
-    
-    // Put disclosure indicators on buildings that have a photo
-    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row];
-    
-    if(buildingPhoto != nil) {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
+
     return cell;
 }
 
@@ -139,8 +137,8 @@
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    BuildingViewController *viewController = segue.destinationViewController;
-    viewController.isDetailedView = YES;
+     BuildingInfoViewController *viewController = segue.destinationViewController;
+    viewController.buildingModel = self.buildingModel;
 }
 
 
@@ -148,8 +146,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-   
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    self.buildingModel.selectedBuilding = cell.textLabel.text;
+    self.buildingModel.selectedBuildingImage = [self.buildingModel buildingImageForIndex:indexPath.row];
 }
 
 @end

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface BuildingModel : NSObject
+@property (nonatomic, strong) NSString *selectedBuilding;
+@property (nonatomic, strong) UIImage *selectedBuildingImage;
+
 - (NSInteger)count;
 - (NSString *)buildingForIndex:(NSInteger)index;
 - (UIImage *)buildingImageForIndex:(NSInteger)index;
