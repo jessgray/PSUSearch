@@ -12,4 +12,6 @@
 - (NSInteger)count;
 - (NSString *)buildingForIndex:(NSInteger)index;
 - (UIImage *)buildingImageForIndex:(NSInteger)index;
+
+- (void)sortByBuildingName;
 @end

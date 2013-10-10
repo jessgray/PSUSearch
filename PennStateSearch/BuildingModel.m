@@ -21,11 +21,14 @@ static NSString *const filename = @"Buildings.plist";
     if(self) {
         if([self fileExists]) {
             NSString *path = [self filePath];
-            self.buildings = [NSArray arrayWithContentsOfFile:path];
+            self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
+            
+            [self sortByBuildingName];
         } else {
             NSBundle *bundle = [NSBundle mainBundle];
             NSString *path = [bundle pathForResource:@"buildings" ofType:@"plist"];
-            self.buildings = [NSArray arrayWithContentsOfFile:path];
+            self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
+            [self sortByBuildingName];
             [self.buildings writeToFile:[self filePath] atomically:YES];
         }
     }
@@ -65,6 +68,11 @@ static NSString *const filename = @"Buildings.plist";
     NSString *path = [[NSBundle mainBundle] pathForResource:buildingPhoto ofType:@".jpg"];
     UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
     return image;
+}
+
+- (void)sortByBuildingName {
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    [self.buildings sortUsingDescriptors:@[sortDescriptor]];
 }
 
 @end
