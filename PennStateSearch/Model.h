@@ -20,4 +20,6 @@
 - (NSString *)campusForIndex: (NSInteger)index;
 - (NSString *)majorForIndex: (NSInteger)index;
 - (NSString *)classForIndex: (NSInteger)index;
+
+@property NSInteger selectedIndex;
 @end

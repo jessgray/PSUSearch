@@ -326,12 +326,12 @@
 				1E0CE9D017FCBBE000CA1E56 /* JGSViewController.m */,
 				1E0CE9EE17FCD0F200CA1E56 /* DirectoryViewController.h */,
 				1E0CE9EF17FCD0F200CA1E56 /* DirectoryViewController.m */,
+				1EC8FAD518076F72007FC5D2 /* DirectoryDetailViewController.h */,
+				1EC8FAD618076F72007FC5D2 /* DirectoryDetailViewController.m */,
 				1EC8FACF1807472F007FC5D2 /* BuildingViewController.h */,
 				1EC8FAD01807472F007FC5D2 /* BuildingViewController.m */,
 				1EC8FAD218075D0D007FC5D2 /* BuildingInfoViewController.h */,
 				1EC8FAD318075D0D007FC5D2 /* BuildingInfoViewController.m */,
-				1EC8FAD518076F72007FC5D2 /* DirectoryDetailViewController.h */,
-				1EC8FAD618076F72007FC5D2 /* DirectoryDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

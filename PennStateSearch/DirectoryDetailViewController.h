@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Model.h"
 
 @interface DirectoryDetailViewController : UITableViewController
-
+@property (nonatomic, strong)Model *model;
+@property NSInteger selectedIndex;
 @end

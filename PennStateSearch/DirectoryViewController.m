@@ -8,8 +8,11 @@
 
 #import "DirectoryViewController.h"
 #import "Model.h"
+#import "DirectoryDetailViewController.h"
 
 @interface DirectoryViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *results;
+
 - (IBAction)dismissPressed:(id)sender;
 
 @end
@@ -44,6 +47,12 @@
     
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DirectoryDetailViewController *viewController = segue.destinationViewController;
+    viewController.model = self.tableModel;
+    viewController.selectedIndex = [self.results indexPathForSelectedRow].row;
+}
+
 #pragma mark - Data Source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,7 +80,7 @@
 
 #pragma mark - TableView Delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    self.tableModel.selectedIndex = indexPath.row;
 }
 
 

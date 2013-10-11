@@ -43,9 +43,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.title = self.buildingModel.selectedBuilding;
+    self.title = self.selectedBuilding;
     
-    UIImage *image = self.buildingModel.selectedBuildingImage;
+    UIImage *image = self.selectedBuildingImage;
     _imageView = [[UIImageView alloc] initWithImage:image];
     [self.photoScrollView addSubview:self.imageView];
     
