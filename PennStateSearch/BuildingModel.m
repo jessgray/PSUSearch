@@ -12,6 +12,7 @@ static NSString *const filename = @"Buildings.plist";
 
 @interface BuildingModel ()
 @property (nonatomic, strong) NSMutableArray *buildings;
+@property (nonatomic, strong) NSMutableArray *buildingsWithImages;
 @end
 
 @implementation BuildingModel
@@ -22,17 +23,37 @@ static NSString *const filename = @"Buildings.plist";
         if([self fileExists]) {
             NSString *path = [self filePath];
             self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
+            [self sortByBuildingName:self.buildings];
             
-            [self sortByBuildingName];
+            [self initBuildingsWithImages];
+            [self sortByBuildingName:self.buildingsWithImages];
         } else {
             NSBundle *bundle = [NSBundle mainBundle];
             NSString *path = [bundle pathForResource:@"buildings" ofType:@"plist"];
             self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
-            [self sortByBuildingName];
+            [self sortByBuildingName:self.buildings];
             [self.buildings writeToFile:[self filePath] atomically:YES];
+            
+            [self initBuildingsWithImages];
+            [self sortByBuildingName:self.buildingsWithImages];
         }
     }
     return self;
+}
+
+- (void)initBuildingsWithImages {
+    
+    self.buildingsWithImages = [[NSMutableArray alloc] init];
+    
+    for(int i=0; i < [self.buildings count]; i++) {
+        NSDictionary *dictionary = [self.buildings objectAtIndex:i];
+        NSString *photo = [dictionary objectForKey:@"photo"];
+        
+        // Add any buildings with photos to the buildings with images array
+        if(photo.length > 0) {
+            [self.buildingsWithImages addObject:self.buildings[i]];
+        }
+    }
 }
 
 #pragma mark - File System
@@ -52,18 +73,37 @@ static NSString *const filename = @"Buildings.plist";
 
 #pragma mark - Public methods
 
-- (NSInteger)count {
-    return [self.buildings count];
+- (NSInteger)countwithImages:(BOOL)showOnlyImages {
+    if(showOnlyImages) {
+        return [self.buildingsWithImages count];
+    } else {
+        return [self.buildings count];
+    }
 }
 
-- (NSString *)buildingForIndex:(NSInteger)index {
-    NSDictionary *dictionary = [self.buildings objectAtIndex:index];
+- (NSString *)buildingForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages {
+    NSDictionary *dictionary;
+    
+    if(showOnlyImages) {
+        dictionary = [self.buildingsWithImages objectAtIndex:index];
+    } else {
+        dictionary = [self.buildings objectAtIndex:index];
+    }
+    
     NSString *building = [dictionary objectForKey:@"name"];
     return building;
 }
 
-- (UIImage *)buildingImageForIndex:(NSInteger)index {
-    NSDictionary *dictionary = [self.buildings objectAtIndex:index];
+- (UIImage *)buildingImageForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages {
+    
+    NSDictionary *dictionary;
+    
+    if(showOnlyImages) {
+        dictionary = [self.buildingsWithImages objectAtIndex:index];
+    } else {
+        dictionary = [self.buildings objectAtIndex:index];
+    }
+    
     NSString *buildingPhoto = [dictionary objectForKey:@"photo"];
     if(buildingPhoto.length == 0) {
         return nil;
@@ -74,9 +114,9 @@ static NSString *const filename = @"Buildings.plist";
     }
 }
 
-- (void)sortByBuildingName {
+- (void)sortByBuildingName:(NSMutableArray *)buildings {
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [self.buildings sortUsingDescriptors:@[sortDescriptor]];
+    [buildings sortUsingDescriptors:@[sortDescriptor]];
 }
 
 @end

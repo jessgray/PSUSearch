@@ -10,12 +10,16 @@
 #import "BuildingModel.h"
 #import "BuildingInfoViewController.h"
 #import "BuildingPreferencesViewController.h"
+#import "Constants.h"
 
 @interface BuildingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *buildingsTable;
+
 @property (nonatomic, strong) BuildingModel *buildingModel;
 @property (nonatomic, strong) NSString *selectedBuilding;
 @property (nonatomic, strong) UIImage *selectedBuildingImage;
+@property (nonatomic, assign) BOOL showingAllBuildings;
+
 @end
 
 @implementation BuildingViewController
@@ -37,19 +41,19 @@
     return self;
 }
 
-- (void)updateTitle {
-        self.title = @"Campus Buildings";
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self updateTitle];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"Campus Buildings";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSNumber *showAllBuildings = [preferences objectForKey:kShowAllBuildings];
+    self.showingAllBuildings = [showAllBuildings boolValue];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.buildingModel count];
+    return [self.buildingModel countwithImages:self.showingAllBuildings];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +82,7 @@
     static NSString *CellIdentifier;
     
     // Decide which prototype cell to use for buildings
-    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row];
+    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row withImages:self.showingAllBuildings];
     
     if(buildingPhoto != nil) {
         CellIdentifier = @"ImageCell";
@@ -92,7 +96,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row];
+    cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row withImages:self.showingAllBuildings];
 
     return cell;
 }
@@ -111,7 +115,7 @@
         BuildingInfoViewController *viewController = segue.destinationViewController;
         viewController.buildingModel = self.buildingModel;
         viewController.selectedBuilding = cell.textLabel.text;
-        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row];
+        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row withImages:self.showingAllBuildings];
     }
     
 }
