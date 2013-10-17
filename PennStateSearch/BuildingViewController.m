@@ -102,10 +102,14 @@
     
     UITableViewCell *cell = [self.buildingsTable cellForRowAtIndexPath:[self.buildingsTable indexPathForSelectedRow]];
     
-     BuildingInfoViewController *viewController = segue.destinationViewController;
-    viewController.buildingModel = self.buildingModel;
-    viewController.selectedBuilding = cell.textLabel.text;
-    viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row];
+    if ([segue.identifier isEqualToString:@"PreferencesSegue"]) {
+    
+    } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
+        BuildingInfoViewController *viewController = segue.destinationViewController;
+        viewController.buildingModel = self.buildingModel;
+        viewController.selectedBuilding = cell.textLabel.text;
+        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row];
+    }
     
 }
 

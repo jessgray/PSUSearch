@@ -47,6 +47,7 @@
     self.searchResult = [self.searchURL searchWithQuery:query withinBase:@"dc=psu,dc=edu" usingScope:RH_LDAP_SCOPE_SUBTREE error: &error];
 }
 
+
 - (NSInteger)numResults {
     return [self.searchResult count];
 }

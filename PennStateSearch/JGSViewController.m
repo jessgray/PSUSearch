@@ -37,9 +37,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
+
     self.title = @"Penn State Directory Search";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // Clear text values
+    [self.firstNameTextField setText:@""];
+    [self.lastNameTextField setText:@""];
+    [self.accessIdTextField setText:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,9 +150,6 @@
 #pragma mark - Delegate
 
 -(void)dismissMe {
-    [self.firstNameTextField setText:@""];
-    [self.lastNameTextField setText:@""];
-    [self.accessIdTextField setText:@""];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
