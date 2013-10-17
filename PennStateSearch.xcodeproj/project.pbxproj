@@ -26,6 +26,7 @@
 		1E26D32D17FDFDB100DD2B8E /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E26D32C17FDFDB100DD2B8E /* Model.m */; };
 		1E26D32F17FE49D400DD2B8E /* psusmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D32E17FE49D400DD2B8E /* psusmall.jpg */; };
 		1E26D33117FE5F4100DD2B8E /* searchbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D33017FE5F4100DD2B8E /* searchbutton.png */; };
+		1EB2992F181093C400BB9D1D /* BuildingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB2992E181093C400BB9D1D /* BuildingInfo.m */; };
 		1EB7D32B180F9DE100881E80 /* BuildingPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */; };
 		1EB7D32E180FA03100881E80 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32D180FA03100881E80 /* Constants.m */; };
 		1EC8FAA21806448E007FC5D2 /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA821806448E007FC5D2 /* agadmin.jpg */; };
@@ -110,6 +111,8 @@
 		1E26D32C17FDFDB100DD2B8E /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		1E26D32E17FE49D400DD2B8E /* psusmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = psusmall.jpg; sourceTree = "<group>"; };
 		1E26D33017FE5F4100DD2B8E /* searchbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbutton.png; sourceTree = "<group>"; };
+		1EB2992D181093C400BB9D1D /* BuildingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInfo.h; sourceTree = "<group>"; };
+		1EB2992E181093C400BB9D1D /* BuildingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInfo.m; sourceTree = "<group>"; };
 		1EB7D329180F9DE100881E80 /* BuildingPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingPreferencesViewController.h; sourceTree = "<group>"; };
 		1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingPreferencesViewController.m; sourceTree = "<group>"; };
 		1EB7D32C180FA03100881E80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				1E26D32C17FDFDB100DD2B8E /* Model.m */,
 				1EC8FAC618064D8A007FC5D2 /* BuildingModel.h */,
 				1EC8FAC718064D8A007FC5D2 /* BuildingModel.m */,
+				1EB2992D181093C400BB9D1D /* BuildingInfo.h */,
+				1EB2992E181093C400BB9D1D /* BuildingInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				1EC8FAD718076F73007FC5D2 /* DirectoryDetailViewController.m in Sources */,
 				1EB7D32B180F9DE100881E80 /* BuildingPreferencesViewController.m in Sources */,
 				1EB7D32E180FA03100881E80 /* Constants.m in Sources */,
+				1EB2992F181093C400BB9D1D /* BuildingInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

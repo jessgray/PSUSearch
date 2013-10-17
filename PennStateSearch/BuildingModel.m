@@ -7,8 +7,9 @@
 //
 
 #import "BuildingModel.h"
+#import "BuildingInfo.h"
 
-static NSString *const filename = @"Buildings.plist";
+static NSString *const filename = @"buildings.archive";
 
 @interface BuildingModel ()
 @property (nonatomic, strong) NSMutableArray *buildings;
@@ -17,12 +18,22 @@ static NSString *const filename = @"Buildings.plist";
 
 @implementation BuildingModel
 
++ (id)sharedInstance {
+    static id singleton = nil;
+    if (!singleton) {
+        singleton = [[self alloc] init];
+    }
+    return singleton;
+}
+
 - (id)init {
     self = [super init];
     if(self) {
         if([self fileExists]) {
             NSString *path = [self filePath];
-            self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
+            
+            self.buildings = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+            //self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
             [self sortByBuildingName:self.buildings];
             
             [self initBuildingsWithImages];
