@@ -7,9 +7,14 @@
 //
 
 #import "BuildingPreferencesViewController.h"
+#import "Constants.h"
 
 @interface BuildingPreferencesViewController ()
 - (IBAction)dismiss:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableViewCell *zoomPhotosCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *showAllBuildingsCell;
+@property (weak, nonatomic) IBOutlet UISwitch *zoomPhotosSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *showAllBuildingsSwitch;
 
 @end
 
@@ -27,12 +32,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Show user preferences
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSNumber *zoomBool = [preferences objectForKey:kZoomablePhotos];
+    NSNumber *showBuildingsBool = [preferences objectForKey:kShowAllBuildings];
+    
+    self.zoomPhotosSwitch.on = [zoomBool boolValue];
+    self.showAllBuildingsSwitch.on = [showBuildingsBool boolValue];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // Add titles/subtitles to static table cells
+    //self.zoomPhotosCell.textLabel.text = @"Zoomable Photos";
+    //self.zoomPhotosCell.detailTextLabel.text = @"Enables photo zooming";
+    
+    //self.showAllBuildingsCell.textLabel.text = @"Show All Buildings";
+    //self.showAllBuildingsCell.detailTextLabel.text = @"Shows all buildings with/without photos";
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,70 +59,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -120,5 +74,11 @@
 }
 
 - (IBAction)dismiss:(id)sender {
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences setBool:self.zoomPhotosSwitch.isOn forKey:kZoomablePhotos];
+    [preferences setBool:self.showAllBuildingsSwitch.isOn forKey:kShowAllBuildings];
+    [preferences synchronize];
+    
+    self.CompletionBlock();
 }
 @end

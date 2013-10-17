@@ -9,6 +9,7 @@
 #import "BuildingViewController.h"
 #import "BuildingModel.h"
 #import "BuildingInfoViewController.h"
+#import "BuildingPreferencesViewController.h"
 
 @interface BuildingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *buildingsTable;
@@ -103,7 +104,9 @@
     UITableViewCell *cell = [self.buildingsTable cellForRowAtIndexPath:[self.buildingsTable indexPathForSelectedRow]];
     
     if ([segue.identifier isEqualToString:@"PreferencesSegue"]) {
-    
+        BuildingPreferencesViewController *preferencesViewController = segue.destinationViewController;
+        preferencesViewController.CompletionBlock = ^{[self dismissViewControllerAnimated:YES completion:NULL];};
+        
     } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
         BuildingInfoViewController *viewController = segue.destinationViewController;
         viewController.buildingModel = self.buildingModel;

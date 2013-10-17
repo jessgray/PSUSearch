@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BuildingPreferencesViewController : UITableViewController
-
+@property (nonatomic, copy) void (^CompletionBlock)(void);
 @end
