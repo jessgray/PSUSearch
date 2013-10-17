@@ -10,10 +10,13 @@
 #import "BuildingInfo.h"
 
 static NSString *const filename = @"buildings.archive";
+static NSString *const filenameOnlyPhotos = @"buildingsOnlyPhotos.archive";
 
 @interface BuildingModel ()
 @property (nonatomic, strong) NSMutableArray *buildings;
+@property (nonatomic, strong) NSMutableArray *buildingsInfoArray;
 @property (nonatomic, strong) NSMutableArray *buildingsWithImages;
+@property (nonatomic, strong) NSMutableArray *buildingsWithImagesInfoArray;
 @end
 
 @implementation BuildingModel
@@ -29,24 +32,47 @@ static NSString *const filename = @"buildings.archive";
 - (id)init {
     self = [super init];
     if(self) {
-        if([self fileExists]) {
-            NSString *path = [self filePath];
-            
-            self.buildings = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-            //self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
+        if([self filesExist]) {
+            // Unarchive buildings array
+            NSString *buildingsPath = [self buildingsFilePath];
+            self.buildings = [NSKeyedUnarchiver unarchiveObjectWithFile:buildingsPath];
             [self sortByBuildingName:self.buildings];
-            
-            [self initBuildingsWithImages];
+        
+            // Unarchive buildings with images array
+            NSString *buildingsOnlyPhotosPath = [self buildingsOnlyImagesFilePath];
+            self.buildingsWithImages = [NSKeyedUnarchiver unarchiveObjectWithFile:buildingsOnlyPhotosPath];
             [self sortByBuildingName:self.buildingsWithImages];
         } else {
             NSBundle *bundle = [NSBundle mainBundle];
             NSString *path = [bundle pathForResource:@"buildings" ofType:@"plist"];
+            
+            // Create and archive all buildings array
             self.buildings = [NSMutableArray arrayWithContentsOfFile:path];
             [self sortByBuildingName:self.buildings];
-            [self.buildings writeToFile:[self filePath] atomically:YES];
+            [self.buildings writeToFile:[self buildingsFilePath] atomically:YES];
             
+            _buildingsInfoArray = [NSMutableArray array];
+            for (NSDictionary *dict in self.buildings) {
+                BuildingInfo *info = [[BuildingInfo alloc] initWithName:dict[@"name"] photo:dict[@"photo"]];
+                [_buildingsInfoArray addObject:info];
+            }
+            
+            [NSKeyedArchiver archiveRootObject:_buildingsInfoArray toFile:[self buildingsFilePath]];
+            
+            
+            // Create and archive buildings with images array
             [self initBuildingsWithImages];
             [self sortByBuildingName:self.buildingsWithImages];
+            [self.buildingsWithImages writeToFile:[self buildingsOnlyImagesFilePath] atomically:YES];
+            
+            _buildingsWithImagesInfoArray = [NSMutableArray array];
+            for (NSDictionary *dict in self.buildingsWithImages) {
+                BuildingInfo *info = [[BuildingInfo alloc] initWithName:dict[@"name"] photo:dict[@"photo"]];
+                [_buildingsWithImagesInfoArray addObject:info];
+            }
+            
+            [NSKeyedArchiver archiveRootObject:_buildingsWithImagesInfoArray toFile:[self buildingsOnlyImagesFilePath]];
+            
         }
     }
     return self;
@@ -73,13 +99,18 @@ static NSString *const filename = @"buildings.archive";
     return [NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) lastObject];
 }
 
-- (NSString *)filePath {
+- (NSString *)buildingsFilePath {
     return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filename];
 }
 
-- (BOOL)fileExists {
-    NSString *path = [self filePath];
-    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+- (NSString *)buildingsOnlyImagesFilePath {
+    return [[self applicationDocumentsDirectory] stringByAppendingPathComponent:filenameOnlyPhotos];
+}
+
+- (BOOL)filesExist {
+    NSString *buildingsPath = [self buildingsFilePath];
+    NSString *buildingsOnlyPhotosPath = [self buildingsOnlyImagesFilePath];
+    return ([[NSFileManager defaultManager] fileExistsAtPath:buildingsPath] && [[NSFileManager defaultManager] fileExistsAtPath:buildingsOnlyPhotosPath]);
 }
 
 #pragma mark - Public methods
@@ -93,34 +124,34 @@ static NSString *const filename = @"buildings.archive";
 }
 
 - (NSString *)buildingForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings {
-    NSDictionary *dictionary;
+    BuildingInfo *info;
     
     if(showAllBuildings) {
-        dictionary = [self.buildings objectAtIndex:index];
+        info = [self.buildingsInfoArray objectAtIndex:index];
     } else {
-        dictionary = [self.buildingsWithImages objectAtIndex:index];
+        info = [self.buildingsWithImagesInfoArray objectAtIndex:index];
     }
     
-    NSString *building = [dictionary objectForKey:@"name"];
+    NSString *building = info.name;
     return building;
 }
 
 - (UIImage *)buildingImageForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings {
-    
-    NSDictionary *dictionary;
+    BuildingInfo *info;
     
     if(showAllBuildings) {
-        dictionary = [self.buildings objectAtIndex:index];
+        info = [self.buildingsInfoArray objectAtIndex:index];
     } else {
-        dictionary = [self.buildingsWithImages objectAtIndex:index];
+        info = [self.buildingsWithImagesInfoArray objectAtIndex:index];
     }
     
-    NSString *buildingPhoto = [dictionary objectForKey:@"photo"];
-    if(buildingPhoto.length == 0) {
+    UIImage *image = info.photo;
+    
+    CGImageRef cgref = [image CGImage];
+    CIImage *cim = [image CIImage];
+    if(cim == nil && cgref == NULL) {
         return nil;
     } else {
-        NSString *path = [[NSBundle mainBundle] pathForResource:buildingPhoto ofType:@".jpg"];
-        UIImage *image = [[UIImage alloc] initWithContentsOfFile:path];
         return image;
     }
 }

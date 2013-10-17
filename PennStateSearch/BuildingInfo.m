@@ -15,11 +15,12 @@
 
 @implementation BuildingInfo
 
-- (id)initWithName:(NSString *)name photo:(UIImage *)photo {
+- (id)initWithName:(NSString *)name photo:(NSString *)photo {
     self = [super init];
     if (self) {
         _name = name;
-        _photo = photo;
+        NSString *photoName = [NSString stringWithFormat:@"%@.jpg", photo];
+        _photo = [UIImage imageNamed:photoName];
     }
     return self;
 }

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BuildingInfo : NSObject <NSCoding>
-- (id)initWithName:(NSString *)name photo:(UIImage *)photo;
+- (id)initWithName:(NSString *)name photo:(NSString *)photo;
 @property (nonatomic, readonly, strong) NSString *name;
 @property (nonatomic, readonly, strong) UIImage *photo;
 @end
