@@ -60,12 +60,16 @@
     [self.photoScrollView addSubview:self.imageView];
     
     self.photoScrollView.contentSize = image.size;
-
+    
+    // Make images zoomable/not zoomable based on user preferences
     if(self.zoomablePhotos) {
         self.photoScrollView.maximumZoomScale = 2.0;
         self.photoScrollView.minimumZoomScale = self.photoScrollView.bounds.size.width/image.size.width;
         self.photoScrollView.bounces = YES;
         self.photoScrollView.bouncesZoom = NO;
+    } else {
+        self.photoScrollView.maximumZoomScale = self.photoScrollView.bounds.size.width/image.size.width;
+        self.photoScrollView.minimumZoomScale = self.photoScrollView.bounds.size.width/image.size.width;
     }
     
     self.photoScrollView.delegate = self;
