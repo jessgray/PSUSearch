@@ -10,8 +10,8 @@
 
 @interface BuildingModel : NSObject
 
-- (NSInteger)countwithImages:(BOOL)showOnlyImages;
-- (NSString *)buildingForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages;
-- (UIImage *)buildingImageForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages;
+- (NSInteger)countForBuildings:(BOOL)showAllBuildings;
+- (NSString *)buildingForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings;
+- (UIImage *)buildingImageForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings;
 
 @end

@@ -74,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.buildingModel countwithImages:self.showingAllBuildings];
+    return [self.buildingModel countForBuildings:self.showingAllBuildings];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,7 +82,7 @@
     static NSString *CellIdentifier;
     
     // Decide which prototype cell to use for buildings
-    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row withImages:self.showingAllBuildings];
+    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row withAllBuildings:self.showingAllBuildings];
     
     if(buildingPhoto != nil) {
         CellIdentifier = @"ImageCell";
@@ -96,7 +96,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row withImages:self.showingAllBuildings];
+    cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row withAllBuildings:self.showingAllBuildings];
 
     return cell;
 }
@@ -115,7 +115,7 @@
         BuildingInfoViewController *viewController = segue.destinationViewController;
         viewController.buildingModel = self.buildingModel;
         viewController.selectedBuilding = cell.textLabel.text;
-        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row withImages:self.showingAllBuildings];
+        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row withAllBuildings:self.showingAllBuildings];
     }
     
 }

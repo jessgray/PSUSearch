@@ -73,35 +73,35 @@ static NSString *const filename = @"Buildings.plist";
 
 #pragma mark - Public methods
 
-- (NSInteger)countwithImages:(BOOL)showOnlyImages {
-    if(showOnlyImages) {
-        return [self.buildingsWithImages count];
-    } else {
+- (NSInteger)countForBuildings:(BOOL)showAllBuildings {
+    if(showAllBuildings) {
         return [self.buildings count];
+    } else {
+        return [self.buildingsWithImages count];
     }
 }
 
-- (NSString *)buildingForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages {
+- (NSString *)buildingForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings {
     NSDictionary *dictionary;
     
-    if(showOnlyImages) {
-        dictionary = [self.buildingsWithImages objectAtIndex:index];
-    } else {
+    if(showAllBuildings) {
         dictionary = [self.buildings objectAtIndex:index];
+    } else {
+        dictionary = [self.buildingsWithImages objectAtIndex:index];
     }
     
     NSString *building = [dictionary objectForKey:@"name"];
     return building;
 }
 
-- (UIImage *)buildingImageForIndex:(NSInteger)index withImages:(BOOL)showOnlyImages {
+- (UIImage *)buildingImageForIndex:(NSInteger)index withAllBuildings:(BOOL)showAllBuildings {
     
     NSDictionary *dictionary;
     
-    if(showOnlyImages) {
-        dictionary = [self.buildingsWithImages objectAtIndex:index];
-    } else {
+    if(showAllBuildings) {
         dictionary = [self.buildings objectAtIndex:index];
+    } else {
+        dictionary = [self.buildingsWithImages objectAtIndex:index];
     }
     
     NSString *buildingPhoto = [dictionary objectForKey:@"photo"];

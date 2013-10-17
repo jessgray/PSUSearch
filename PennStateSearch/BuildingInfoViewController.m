@@ -7,10 +7,12 @@
 //
 
 #import "BuildingInfoViewController.h"
+#import "Constants.h"
 
 @interface BuildingInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *photoScrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (nonatomic, assign) BOOL zoomablePhotos;
 @end
 
 @implementation BuildingInfoViewController
@@ -40,6 +42,14 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    NSNumber *zoomPhotos = [preferences objectForKey:kZoomablePhotos];
+    self.zoomablePhotos = [zoomPhotos boolValue];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -50,15 +60,16 @@
     [self.photoScrollView addSubview:self.imageView];
     
     self.photoScrollView.contentSize = image.size;
-    
-    self.photoScrollView.maximumZoomScale = 2.0;
-    self.photoScrollView.minimumZoomScale = self.photoScrollView.bounds.size.width/image.size.width;
-    self.photoScrollView.bounces = YES;
-    self.photoScrollView.bouncesZoom = NO;
+
+    if(self.zoomablePhotos) {
+        self.photoScrollView.maximumZoomScale = 2.0;
+        self.photoScrollView.minimumZoomScale = self.photoScrollView.bounds.size.width/image.size.width;
+        self.photoScrollView.bounces = YES;
+        self.photoScrollView.bouncesZoom = NO;
+    }
     
     self.photoScrollView.delegate = self;
-    
-    [self.photoScrollView zoomToRect:self.imageView.bounds animated:YES];
+    [self.photoScrollView zoomToRect:self.imageView.bounds animated:NO];
     
 }
 
