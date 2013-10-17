@@ -11,8 +11,7 @@
 
 @interface BuildingPreferencesViewController ()
 - (IBAction)dismiss:(id)sender;
-@property (weak, nonatomic) IBOutlet UITableViewCell *zoomPhotosCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *showAllBuildingsCell;
+
 @property (weak, nonatomic) IBOutlet UISwitch *zoomPhotosSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *showAllBuildingsSwitch;
 
@@ -40,17 +39,6 @@
     
     self.zoomPhotosSwitch.on = [zoomBool boolValue];
     self.showAllBuildingsSwitch.on = [showBuildingsBool boolValue];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // Add titles/subtitles to static table cells
-    //self.zoomPhotosCell.textLabel.text = @"Zoomable Photos";
-    //self.zoomPhotosCell.detailTextLabel.text = @"Enables photo zooming";
-    
-    //self.showAllBuildingsCell.textLabel.text = @"Show All Buildings";
-    //self.showAllBuildingsCell.detailTextLabel.text = @"Shows all buildings with/without photos";
 }
 
 - (void)didReceiveMemoryWarning

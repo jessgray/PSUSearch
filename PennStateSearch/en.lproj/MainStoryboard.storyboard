@@ -478,12 +478,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-d6-yND"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zoomable Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AK-L9-zfV">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="157" id="2mS-6l-6PI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="fx2-d6-yND" firstAttribute="centerY" secondItem="PLL-BU-kWj" secondAttribute="centerY" type="default" id="VL7-8v-tea"/>
+                                            <constraint firstItem="1AK-L9-zfV" firstAttribute="centerY" secondItem="fx2-d6-yND" secondAttribute="centerY" type="default" id="NBY-p7-dW4"/>
+                                            <constraint firstItem="1AK-L9-zfV" firstAttribute="centerY" secondItem="PLL-BU-kWj" secondAttribute="centerY" type="default" id="fQi-ho-00Y"/>
                                             <constraint firstAttribute="trailing" secondItem="fx2-d6-yND" secondAttribute="trailing" constant="30" id="vBk-sI-HG2"/>
+                                            <constraint firstItem="1AK-L9-zfV" firstAttribute="leading" secondItem="PLL-BU-kWj" secondAttribute="leading" constant="20" type="default" id="y47-Oo-E6s"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nc6-0g-0Fo">
@@ -494,11 +504,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hm6-Dd-eUW"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show All Buildings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUF-d2-fh4">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="157" id="C5H-ae-fMd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="sUF-d2-fh4" firstAttribute="centerY" secondItem="Hm6-Dd-eUW" secondAttribute="centerY" type="default" id="9Yh-1R-dMY"/>
                                             <constraint firstItem="Hm6-Dd-eUW" firstAttribute="top" secondItem="nc6-0g-0Fo" secondAttribute="top" constant="8" id="TrK-vY-YjL"/>
+                                            <constraint firstItem="sUF-d2-fh4" firstAttribute="leading" secondItem="nc6-0g-0Fo" secondAttribute="leading" constant="21" id="gcg-ZI-Gh4"/>
                                             <constraint firstAttribute="trailing" secondItem="Hm6-Dd-eUW" secondAttribute="trailing" constant="30" id="mMn-69-J3u"/>
                                         </constraints>
                                     </tableViewCell>
@@ -511,9 +531,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="showAllBuildingsCell" destination="nc6-0g-0Fo" id="9uP-4a-815"/>
                         <outlet property="showAllBuildingsSwitch" destination="Hm6-Dd-eUW" id="FM5-4Z-ACf"/>
-                        <outlet property="zoomPhotosCell" destination="PLL-BU-kWj" id="8Au-2v-Zwm"/>
                         <outlet property="zoomPhotosSwitch" destination="fx2-d6-yND" id="lge-tJ-Xzu"/>
                     </connections>
                 </tableViewController>
@@ -593,6 +611,61 @@
         <image name="pyramid.png" width="30" height="30"/>
         <image name="searchbutton.png" width="73" height="44"/>
     </resources>
+    <classes>
+        <class className="BuildingInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="photoScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="BuildingPreferencesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingPreferencesViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="outlet" name="showAllBuildingsSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="zoomPhotosSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="BuildingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buildingsTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="DirectoryDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="campusCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="classCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="emailCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="majorCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="userIdCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="DirectoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissPressed:"/>
+                <relationship kind="outlet" name="results" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="JGSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JGSViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeView:"/>
+                <relationship kind="action" name="searchPressed:"/>
+                <relationship kind="outlet" name="accessIdTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorMessage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
