@@ -147,6 +147,7 @@ static NSString *const filenameOnlyPhotos = @"buildingsOnlyPhotos.archive";
     
     UIImage *image = info.photo;
     
+    // Check if there is an actual image or if the image doesn't exist
     CGImageRef cgref = [image CGImage];
     CIImage *cim = [image CIImage];
     if(cim == nil && cgref == NULL) {
