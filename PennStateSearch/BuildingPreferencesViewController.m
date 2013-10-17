@@ -9,6 +9,7 @@
 #import "BuildingPreferencesViewController.h"
 
 @interface BuildingPreferencesViewController ()
+- (IBAction)dismiss:(id)sender;
 
 @end
 
@@ -118,4 +119,6 @@
      */
 }
 
+- (IBAction)dismiss:(id)sender {
+}
 @end

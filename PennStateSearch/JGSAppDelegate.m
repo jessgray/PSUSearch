@@ -7,12 +7,14 @@
 //
 
 #import "JGSAppDelegate.h"
+#import "Constants.h"
 
 @implementation JGSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
+    [preferences registerDefaults:@{kZoomablePhotos:@YES, kShowAllBuildings:@YES}];
     return YES;
 }
 							

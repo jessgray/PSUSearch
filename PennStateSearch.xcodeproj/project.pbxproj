@@ -27,6 +27,7 @@
 		1E26D32F17FE49D400DD2B8E /* psusmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D32E17FE49D400DD2B8E /* psusmall.jpg */; };
 		1E26D33117FE5F4100DD2B8E /* searchbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D33017FE5F4100DD2B8E /* searchbutton.png */; };
 		1EB7D32B180F9DE100881E80 /* BuildingPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */; };
+		1EB7D32E180FA03100881E80 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32D180FA03100881E80 /* Constants.m */; };
 		1EC8FAA21806448E007FC5D2 /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA821806448E007FC5D2 /* agadmin.jpg */; };
 		1EC8FAA31806448E007FC5D2 /* ageng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA831806448E007FC5D2 /* ageng.jpg */; };
 		1EC8FAA41806448E007FC5D2 /* appliedscience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA841806448E007FC5D2 /* appliedscience.jpg */; };
@@ -111,6 +112,8 @@
 		1E26D33017FE5F4100DD2B8E /* searchbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbutton.png; sourceTree = "<group>"; };
 		1EB7D329180F9DE100881E80 /* BuildingPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingPreferencesViewController.h; sourceTree = "<group>"; };
 		1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingPreferencesViewController.m; sourceTree = "<group>"; };
+		1EB7D32C180FA03100881E80 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		1EB7D32D180FA03100881E80 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1EC8FA821806448E007FC5D2 /* agadmin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agadmin.jpg; sourceTree = "<group>"; };
 		1EC8FA831806448E007FC5D2 /* ageng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ageng.jpg; sourceTree = "<group>"; };
 		1EC8FA841806448E007FC5D2 /* appliedscience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appliedscience.jpg; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				1E0CE9BD17FCBBDF00CA1E56 /* InfoPlist.strings */,
 				1E0CE9C017FCBBDF00CA1E56 /* main.m */,
 				1E0CE9C217FCBBDF00CA1E56 /* PennStateSearch-Prefix.pch */,
+				1EB7D32C180FA03100881E80 /* Constants.h */,
+				1EB7D32D180FA03100881E80 /* Constants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				1EC8FAD418075D0D007FC5D2 /* BuildingInfoViewController.m in Sources */,
 				1EC8FAD718076F73007FC5D2 /* DirectoryDetailViewController.m in Sources */,
 				1EB7D32B180F9DE100881E80 /* BuildingPreferencesViewController.m in Sources */,
+				1EB7D32E180FA03100881E80 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

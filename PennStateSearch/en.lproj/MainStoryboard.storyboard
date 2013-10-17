@@ -461,7 +461,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Back" id="HOR-cD-kEu"/>
+                                <barButtonItem title="Back" id="HOR-cD-kEu">
+                                    <connections>
+                                        <action selector="dismiss:" destination="Obh-Ac-0iJ" id="KrX-2z-hTr"/>
+                                    </connections>
+                                </barButtonItem>
                             </items>
                         </toolbar>
                         <sections>
@@ -479,7 +483,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Buildings photos are able to be zoomed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-0P-qgJ">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Enables zooming for building photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBe-0P-qgJ">
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -500,7 +504,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Show buildings with and without photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZb-ow-JQ1">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Shows buildings with and without photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZb-ow-JQ1">
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -593,56 +597,6 @@
         <image name="pyramid.png" width="30" height="30"/>
         <image name="searchbutton.png" width="73" height="44"/>
     </resources>
-    <classes>
-        <class className="BuildingInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingInfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="photoScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="BuildingPreferencesViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingPreferencesViewController.h"/>
-        </class>
-        <class className="BuildingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BuildingViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="buildingsTable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="DirectoryDetailViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addressCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="campusCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="classCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="emailCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="majorCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="userIdCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="DirectoryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DirectoryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissPressed:"/>
-                <relationship kind="outlet" name="results" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="JGSViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JGSViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changeView:"/>
-                <relationship kind="action" name="searchPressed:"/>
-                <relationship kind="outlet" name="accessIdTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="errorMessage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="mainView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
