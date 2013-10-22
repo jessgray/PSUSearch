@@ -31,6 +31,8 @@
 		1EB7D32E180FA03100881E80 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32D180FA03100881E80 /* Constants.m */; };
 		1EC616FC1816135700AF886A /* Buildings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EC616FA1816135700AF886A /* Buildings.xcdatamodeld */; };
 		1EC616FE1816146400AF886A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC616FD1816146400AF886A /* CoreData.framework */; };
+		1EC617051816164600AF886A /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC617001816164500AF886A /* DataManager.m */; };
+		1EC617061816164600AF886A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC617031816164500AF886A /* DataSource.m */; };
 		1EC8FAA21806448E007FC5D2 /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA821806448E007FC5D2 /* agadmin.jpg */; };
 		1EC8FAA31806448E007FC5D2 /* ageng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA831806448E007FC5D2 /* ageng.jpg */; };
 		1EC8FAA41806448E007FC5D2 /* appliedscience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA841806448E007FC5D2 /* appliedscience.jpg */; };
@@ -121,6 +123,12 @@
 		1EB7D32D180FA03100881E80 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		1EC616FB1816135700AF886A /* Buildings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Buildings.xcdatamodel; sourceTree = "<group>"; };
 		1EC616FD1816146400AF886A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1EC616FF1816164500AF886A /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		1EC617001816164500AF886A /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		1EC617011816164500AF886A /* DataManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManagerDelegate.h; sourceTree = "<group>"; };
+		1EC617021816164500AF886A /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		1EC617031816164500AF886A /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		1EC617041816164500AF886A /* DataSourceCellConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceCellConfigurer.h; sourceTree = "<group>"; };
 		1EC8FA821806448E007FC5D2 /* agadmin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agadmin.jpg; sourceTree = "<group>"; };
 		1EC8FA831806448E007FC5D2 /* ageng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ageng.jpg; sourceTree = "<group>"; };
 		1EC8FA841806448E007FC5D2 /* appliedscience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appliedscience.jpg; sourceTree = "<group>"; };
@@ -336,6 +344,12 @@
 		1EC8FAC2180649CA007FC5D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1EC616FF1816164500AF886A /* DataManager.h */,
+				1EC617001816164500AF886A /* DataManager.m */,
+				1EC617011816164500AF886A /* DataManagerDelegate.h */,
+				1EC617021816164500AF886A /* DataSource.h */,
+				1EC617031816164500AF886A /* DataSource.m */,
+				1EC617041816164500AF886A /* DataSourceCellConfigurer.h */,
 				1E26D32B17FDFDB100DD2B8E /* Model.h */,
 				1E26D32C17FDFDB100DD2B8E /* Model.m */,
 				1EC8FAC618064D8A007FC5D2 /* BuildingModel.h */,
@@ -515,6 +529,8 @@
 				1EB7D32E180FA03100881E80 /* Constants.m in Sources */,
 				1EB2992F181093C400BB9D1D /* BuildingInfo.m in Sources */,
 				1EC616FC1816135700AF886A /* Buildings.xcdatamodeld in Sources */,
+				1EC617051816164600AF886A /* DataManager.m in Sources */,
+				1EC617061816164600AF886A /* DataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
