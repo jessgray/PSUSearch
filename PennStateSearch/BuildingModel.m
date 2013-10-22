@@ -38,6 +38,10 @@
         NSArray *results = [dataManager fetchManagedObjectsForEntity:@"Building" sortKeys:@[@"name"] predicate:nil];
         
         self.buildings = [results mutableCopy];
+        [self sortByBuildingName:self.buildings];
+        
+        [self initBuildingsWithImages];
+        [self sortByBuildingName:self.buildingsWithImages];
     }
     return self;
 }
