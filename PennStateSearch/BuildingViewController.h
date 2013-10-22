@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataSourceCellConfigurer.h"
 
-@interface BuildingViewController : UITableViewController
+@interface BuildingViewController : UITableViewController <DataSourceCellConfigurer>
 @end

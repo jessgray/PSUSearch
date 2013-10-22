@@ -35,6 +35,7 @@
 		1EC617061816164600AF886A /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC617031816164500AF886A /* DataSource.m */; };
 		1EC6170C181619AB00AF886A /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC6170B181619AB00AF886A /* Building.m */; };
 		1EC6170F18161BB500AF886A /* MyDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC6170E18161BB500AF886A /* MyDataManager.m */; };
+		1EC61715181638BF00AF886A /* Building+Name.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC61714181638BE00AF886A /* Building+Name.m */; };
 		1EC8FAA21806448E007FC5D2 /* agadmin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA821806448E007FC5D2 /* agadmin.jpg */; };
 		1EC8FAA31806448E007FC5D2 /* ageng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA831806448E007FC5D2 /* ageng.jpg */; };
 		1EC8FAA41806448E007FC5D2 /* appliedscience.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FA841806448E007FC5D2 /* appliedscience.jpg */; };
@@ -135,6 +136,8 @@
 		1EC6170B181619AB00AF886A /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
 		1EC6170D18161BB400AF886A /* MyDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDataManager.h; sourceTree = "<group>"; };
 		1EC6170E18161BB500AF886A /* MyDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDataManager.m; sourceTree = "<group>"; };
+		1EC61713181638BE00AF886A /* Building+Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Building+Name.h"; sourceTree = "<group>"; };
+		1EC61714181638BE00AF886A /* Building+Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Building+Name.m"; sourceTree = "<group>"; };
 		1EC8FA821806448E007FC5D2 /* agadmin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agadmin.jpg; sourceTree = "<group>"; };
 		1EC8FA831806448E007FC5D2 /* ageng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ageng.jpg; sourceTree = "<group>"; };
 		1EC8FA841806448E007FC5D2 /* appliedscience.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appliedscience.jpg; sourceTree = "<group>"; };
@@ -367,6 +370,8 @@
 				1EC6170B181619AB00AF886A /* Building.m */,
 				1EC6170D18161BB400AF886A /* MyDataManager.h */,
 				1EC6170E18161BB500AF886A /* MyDataManager.m */,
+				1EC61713181638BE00AF886A /* Building+Name.h */,
+				1EC61714181638BE00AF886A /* Building+Name.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				1EC617061816164600AF886A /* DataSource.m in Sources */,
 				1EC6170C181619AB00AF886A /* Building.m in Sources */,
 				1EC6170F18161BB500AF886A /* MyDataManager.m in Sources */,
+				1EC61715181638BF00AF886A /* Building+Name.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

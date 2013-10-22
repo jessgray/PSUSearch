@@ -11,6 +11,11 @@
 #import "BuildingInfoViewController.h"
 #import "BuildingPreferencesViewController.h"
 #import "Constants.h"
+#import "DataSource.h"
+#import "MyDataManager.h"
+#import "Building.h"
+
+static NSString * const kTitle = @"Campus Buildings";
 
 @interface BuildingViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *buildingsTable;
@@ -19,6 +24,7 @@
 @property (nonatomic, strong) NSString *selectedBuilding;
 @property (nonatomic, strong) UIImage *selectedBuildingImage;
 @property (nonatomic, assign) BOOL showingAllBuildings;
+@property (nonatomic, strong) DataSource *dataSource;
 
 @end
 
@@ -27,7 +33,11 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        _buildingModel = [[BuildingModel alloc] init];
+        //_buildingModel = [[BuildingModel alloc] init];
+        MyDataManager *myDataManager = [[MyDataManager alloc] init];
+        _dataSource = [[DataSource alloc] initForEntity:@"Building" sortKeys:@[@"name"] predicate:nil sectionNameKeyPath:@"firstLetterOfName" dataManagerDelegate:myDataManager];
+        
+        _dataSource.delegate = self;
     }
     return self;
 }
@@ -44,7 +54,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Campus Buildings";
+    self.title = kTitle;
+    
+    self.tableView.dataSource = self.dataSource;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +74,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Data Source Cell Configurer
+- (NSString*)cellIdentifierForObject:(id)object {
+    Building *building = object;
+    
+    UIImage *image = [[UIImage alloc] initWithData:building.photo];
+    
+    // Return correct cell type based on if there is an image or not
+    CGImageRef cgref = [image CGImage];
+    CIImage *cim = [image CIImage];
+    if(cim == nil && cgref == NULL) {
+        return @"NoImageCell";
+    } else {
+        return @"ImageCell";
+    }
+}
+
+- (void)configureCell:(UITableViewCell *)cell withObject:(id)object {
+    Building *building = object;
+    
+    cell.textLabel.text = building.name;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 
 #pragma mark - Table view data source
 
@@ -105,7 +143,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    UITableViewCell *cell = [self.buildingsTable cellForRowAtIndexPath:[self.buildingsTable indexPathForSelectedRow]];
+    //UITableViewCell *cell = [self.buildingsTable cellForRowAtIndexPath:[self.buildingsTable indexPathForSelectedRow]];
     
     if ([segue.identifier isEqualToString:@"PreferencesSegue"]) {
         BuildingPreferencesViewController *preferencesViewController = segue.destinationViewController;
@@ -113,9 +151,13 @@
         
     } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
         BuildingInfoViewController *viewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        
         viewController.buildingModel = self.buildingModel;
-        viewController.selectedBuilding = cell.textLabel.text;
-        viewController.selectedBuildingImage = [self.buildingModel buildingImageForIndex:[self.buildingsTable indexPathForSelectedRow].row withAllBuildings:self.showingAllBuildings];
+        viewController.selectedBuilding = building.name;
+        UIImage *image = [UIImage imageWithData:building.photo];
+        viewController.selectedBuildingImage = image;
     }
     
 }
