@@ -72,7 +72,7 @@ static NSString * const kTitle = @"Campus Buildings";
     if(!self.showingAllBuildings){
         predicate = [NSPredicate predicateWithFormat:@"photo != nil"];
     } else {
-        predicate = [NSPredicate predicateWithFormat:@"(photo = nil) || (photo != nil)"];
+        predicate = nil;
     }
     
     [_dataSource updateWithPredicate:predicate];
