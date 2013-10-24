@@ -102,7 +102,7 @@ static NSString * const kTitle = @"Campus Buildings";
 }
 
 #pragma mark - Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -138,7 +138,7 @@ static NSString * const kTitle = @"Campus Buildings";
 
     return cell;
 }
-
+*/
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -154,7 +154,6 @@ static NSString * const kTitle = @"Campus Buildings";
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Building *building = [self.dataSource objectAtIndexPath:indexPath];
         
-        viewController.buildingModel = self.buildingModel;
         viewController.selectedBuilding = building.name;
         UIImage *image = [UIImage imageWithData:building.photo];
         viewController.selectedBuildingImage = image;

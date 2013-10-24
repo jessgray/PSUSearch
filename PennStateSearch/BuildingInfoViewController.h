@@ -10,8 +10,6 @@
 #import "BuildingModel.h"
 
 @interface BuildingInfoViewController : UIViewController <UIScrollViewDelegate>
-@property (nonatomic, strong) BuildingModel *buildingModel;
-
 @property (nonatomic, strong) NSString *selectedBuilding;
 @property (nonatomic, strong) UIImage *selectedBuildingImage;
 @end
