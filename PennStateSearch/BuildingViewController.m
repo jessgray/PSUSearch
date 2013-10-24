@@ -65,6 +65,17 @@ static NSString * const kTitle = @"Campus Buildings";
     NSUserDefaults *preferences = [NSUserDefaults standardUserDefaults];
     NSNumber *showAllBuildings = [preferences objectForKey:kShowAllBuildings];
     self.showingAllBuildings = [showAllBuildings boolValue];
+    
+    // Reload tableview with correct buildings
+    NSPredicate *predicate;
+    
+    if(!self.showingAllBuildings){
+        predicate = [NSPredicate predicateWithFormat:@"photo != nil"];
+    } else {
+        predicate = [NSPredicate predicateWithFormat:@"(photo = nil) || (photo != nil)"];
+    }
+    
+    [_dataSource updateWithPredicate:predicate];
     [self.tableView reloadData];
 }
 
@@ -101,44 +112,6 @@ static NSString * const kTitle = @"Campus Buildings";
     return NO;
 }
 
-#pragma mark - Table view data source
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.buildingModel countForBuildings:self.showingAllBuildings];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier;
-    
-    // Decide which prototype cell to use for buildings
-    UIImage *buildingPhoto = [self.buildingModel buildingImageForIndex:indexPath.row withAllBuildings:self.showingAllBuildings];
-    
-    if(buildingPhoto != nil) {
-        CellIdentifier = @"ImageCell";
-    } else {
-        CellIdentifier = @"NoImageCell";
-    }
-        
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(nil==cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = [self.buildingModel buildingForIndex:indexPath.row withAllBuildings:self.showingAllBuildings];
-
-    return cell;
-}
-*/
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

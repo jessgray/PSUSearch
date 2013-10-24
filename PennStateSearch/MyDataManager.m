@@ -36,6 +36,8 @@
         UIImage *photoImage = [UIImage imageNamed:photoName];
         building.photo = UIImageJPEGRepresentation(photoImage, 1.0);
     }
+    
+[dataManager saveContext];
 }
 
 @end
