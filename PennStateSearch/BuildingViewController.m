@@ -90,12 +90,8 @@ static NSString * const kTitle = @"Campus Buildings";
 - (NSString*)cellIdentifierForObject:(id)object {
     Building *building = object;
     
-    UIImage *image = [[UIImage alloc] initWithData:building.photo];
-    
     // Return correct cell type based on if there is an image or not
-    CGImageRef cgref = [image CGImage];
-    CIImage *cim = [image CIImage];
-    if(cim == nil && cgref == NULL) {
+    if(building.photo == nil) {
         return @"NoImageCell";
     } else {
         return @"ImageCell";
