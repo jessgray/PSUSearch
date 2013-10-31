@@ -16,6 +16,7 @@
 #import "MyDataManager.h"
 #import "DataManager.h"
 #import "Building.h"
+#import "AddBuildingTableViewController.h"
 
 static NSString * const kTitle = @"Campus Buildings";
 
@@ -27,6 +28,7 @@ static NSString * const kTitle = @"Campus Buildings";
 @property (nonatomic, strong) UIImage *selectedBuildingImage;
 @property (nonatomic, assign) BOOL showingAllBuildings;
 @property (nonatomic, strong) DataSource *dataSource;
+@property (nonatomic, strong) MyDataManager *myDataManager;
 
 @end
 
@@ -36,8 +38,8 @@ static NSString * const kTitle = @"Campus Buildings";
     self = [super initWithCoder:aDecoder];
     if(self) {
         //_buildingModel = [[BuildingModel alloc] init];
-        MyDataManager *myDataManager = [[MyDataManager alloc] init];
-        _dataSource = [[DataSource alloc] initForEntity:@"Building" sortKeys:@[@"name"] predicate:nil sectionNameKeyPath:@"firstLetterOfName" dataManagerDelegate:myDataManager];
+        _myDataManager = [[MyDataManager alloc] init];
+        _dataSource = [[DataSource alloc] initForEntity:@"Building" sortKeys:@[@"name"] predicate:nil sectionNameKeyPath:@"firstLetterOfName" dataManagerDelegate:_myDataManager];
         
         _dataSource.delegate = self;
     }
@@ -59,6 +61,9 @@ static NSString * const kTitle = @"Campus Buildings";
     self.title = kTitle;
     
     self.tableView.dataSource = self.dataSource;
+    self.dataSource.tableView = self.tableView;
+    
+    self.navigationItem.rightBarButtonItems = @[self.navigationItem.rightBarButtonItem, self.editButtonItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +92,21 @@ static NSString * const kTitle = @"Campus Buildings";
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Editing Table View
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if(editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    }
+}
 
 #pragma mark - Data Source Cell Configurer
 - (NSString*)cellIdentifierForObject:(id)object {
@@ -125,6 +145,15 @@ static NSString * const kTitle = @"Campus Buildings";
             NSString *newInfo = obj;
             building.info = newInfo;
             [[DataManager sharedInstance] saveContext];
+        };
+    } else if ([segue.identifier isEqualToString:@"AddBuildingSegue"]) {
+        AddBuildingTableViewController *addBuildingViewController = segue.destinationViewController;
+        addBuildingViewController.completionBlock = ^(id obj) {
+            [self dismissViewControllerAnimated:YES completion:NULL];
+            if (obj) {
+                NSDictionary *dictionary = obj;
+                [self.myDataManager addBuilding:dictionary];
+            }
         };
     }
     

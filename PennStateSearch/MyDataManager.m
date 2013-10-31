@@ -37,7 +37,27 @@
         building.photo = UIImageJPEGRepresentation(photoImage, 1.0);
     }
     
-[dataManager saveContext];
+    [dataManager saveContext];
+}
+
+- (void)addBuilding:(NSDictionary*)dictionary {
+    DataManager *dataManager = [DataManager sharedInstance];
+    NSManagedObjectContext *managedObjectContext = dataManager.managedObjectContext;
+    
+    Building *building = [NSEntityDescription insertNewObjectForEntityForName:@"Building" inManagedObjectContext:managedObjectContext];
+    
+    building.name = [dictionary objectForKey:@"name"];
+    
+    NSNumberFormatter *format = [[NSNumberFormatter alloc] init];
+    [format setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    building.latitude = [format numberFromString:[dictionary objectForKey:@"latitude"]];
+    building.longitude = [format numberFromString:[dictionary objectForKey:@"longitude"]];
+    building.opp_bldg_code = [format numberFromString:[dictionary objectForKey:@"opp_bldg_code"]];
+    building.year_constructed = [format numberFromString:[dictionary objectForKey:@"year_constructed"]];
+    building.info = [dictionary objectForKey:@"info"];
+    
+    [dataManager saveContext];
 }
 
 @end

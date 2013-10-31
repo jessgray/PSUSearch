@@ -27,6 +27,7 @@
 		1E26D32F17FE49D400DD2B8E /* psusmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D32E17FE49D400DD2B8E /* psusmall.jpg */; };
 		1E26D33117FE5F4100DD2B8E /* searchbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E26D33017FE5F4100DD2B8E /* searchbutton.png */; };
 		1EAA69D91822EAD800B709F3 /* BuildingTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAA69D81822EAD800B709F3 /* BuildingTextViewController.m */; };
+		1EAB85691823048A0046D3B7 /* AddBuildingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAB85681823048A0046D3B7 /* AddBuildingTableViewController.m */; };
 		1EB2992F181093C400BB9D1D /* BuildingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB2992E181093C400BB9D1D /* BuildingInfo.m */; };
 		1EB7D32B180F9DE100881E80 /* BuildingPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */; };
 		1EB7D32E180FA03100881E80 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB7D32D180FA03100881E80 /* Constants.m */; };
@@ -121,6 +122,8 @@
 		1E26D33017FE5F4100DD2B8E /* searchbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchbutton.png; sourceTree = "<group>"; };
 		1EAA69D71822EAD800B709F3 /* BuildingTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingTextViewController.h; sourceTree = "<group>"; };
 		1EAA69D81822EAD800B709F3 /* BuildingTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingTextViewController.m; sourceTree = "<group>"; };
+		1EAB85671823048A0046D3B7 /* AddBuildingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBuildingTableViewController.h; sourceTree = "<group>"; };
+		1EAB85681823048A0046D3B7 /* AddBuildingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBuildingTableViewController.m; sourceTree = "<group>"; };
 		1EB2992D181093C400BB9D1D /* BuildingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingInfo.h; sourceTree = "<group>"; };
 		1EB2992E181093C400BB9D1D /* BuildingInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildingInfo.m; sourceTree = "<group>"; };
 		1EB7D329180F9DE100881E80 /* BuildingPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildingPreferencesViewController.h; sourceTree = "<group>"; };
@@ -396,6 +399,8 @@
 				1EAA69D81822EAD800B709F3 /* BuildingTextViewController.m */,
 				1EB7D329180F9DE100881E80 /* BuildingPreferencesViewController.h */,
 				1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */,
+				1EAB85671823048A0046D3B7 /* AddBuildingTableViewController.h */,
+				1EAB85681823048A0046D3B7 /* AddBuildingTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				1EC6170F18161BB500AF886A /* MyDataManager.m in Sources */,
 				1EC61715181638BF00AF886A /* Building+Name.m in Sources */,
 				1EAA69D91822EAD800B709F3 /* BuildingTextViewController.m in Sources */,
+				1EAB85691823048A0046D3B7 /* AddBuildingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
