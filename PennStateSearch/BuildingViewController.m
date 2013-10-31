@@ -9,6 +9,7 @@
 #import "BuildingViewController.h"
 #import "BuildingModel.h"
 #import "BuildingInfoViewController.h"
+#import "BuildingTextViewController.h"
 #import "BuildingPreferencesViewController.h"
 #import "Constants.h"
 #import "DataSource.h"
@@ -88,14 +89,7 @@ static NSString * const kTitle = @"Campus Buildings";
 
 #pragma mark - Data Source Cell Configurer
 - (NSString*)cellIdentifierForObject:(id)object {
-    Building *building = object;
-    
-    // Return correct cell type based on if there is an image or not
-    if(building.photo == nil) {
-        return @"NoImageCell";
-    } else {
-        return @"ImageCell";
-    }
+    return @"Cell";
 }
 
 - (void)configureCell:(UITableViewCell *)cell withObject:(id)object {
@@ -119,13 +113,12 @@ static NSString * const kTitle = @"Campus Buildings";
         preferencesViewController.CompletionBlock = ^{[self dismissViewControllerAnimated:YES completion:NULL];};
         
     } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
-        BuildingInfoViewController *viewController = segue.destinationViewController;
+        BuildingTextViewController *viewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Building *building = [self.dataSource objectAtIndexPath:indexPath];
         
-        viewController.selectedBuilding = building.name;
-        UIImage *image = [UIImage imageWithData:building.photo];
-        viewController.selectedBuildingImage = image;
+        viewController.buildingName = building.name;
+        viewController.buildingPhoto = building.photo;
     }
     
 }
