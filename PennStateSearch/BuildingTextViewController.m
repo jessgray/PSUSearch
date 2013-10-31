@@ -11,6 +11,7 @@
 
 @interface BuildingTextViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *photoButton;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -32,13 +33,23 @@
     
     self.title = self.buildingName;
     
+    NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+    [toolbarButtons addObject:self.editButtonItem];
+    
+    // Either hide or show photo button
     if(self.buildingPhoto == nil) {
-        self.photoButton.style = UIBarButtonItemStylePlain;
-        self.photoButton.title = nil;
+        [toolbarButtons removeObject:self.photoButton];
     } else {
-        self.photoButton.style = UIBarButtonItemStyleBordered;
-        self.photoButton.title = @"Photo";
+        if(![toolbarButtons containsObject:self.photoButton]) {
+            [toolbarButtons addObject:self.photoButton];
+        }
     }
+    [self.navigationItem setRightBarButtonItems:toolbarButtons];
+    
+    self.textView.text = self.infoString;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,5 +67,69 @@
     viewController.selectedBuildingImage = image;
     
 }
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
+    if (!self.editing) {
+        [self.textView resignFirstResponder];
+    } else {
+        [self.textView becomeFirstResponder];
+    }
+}
+
+
+#pragma mark - Notification Handlers
+- (void)keyboardWasShown: (NSNotification *)notification {
+    NSDictionary *info = notification.userInfo;
+    CGRect frame = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGSize keyboardSize = frame.size;
+    self.textView.frame = CGRectMake(0.0, 0.0, self.textView.bounds.size.width, (self.textView.frame.size.height + [[self.navigationController navigationBar] frame].size.height) - keyboardSize.height);
+}
+
+- (void)keyboardWillBeHidden: (NSNotification *)notification {
+    self.textView.frame = CGRectMake(0.0, 0.0, self.textView.bounds.size.width, self.view.bounds.size.height);
+}
+
+- (void)updateTextView {
+    self.textView.text = self.infoString;
+}
+
+
+#pragma mark - TextView Delegate
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if(!self.editing) {
+        [self setEditing:YES animated:YES];
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    self.completionBlock(self.textView.text);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

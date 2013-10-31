@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSValue *opp_bldg_code;
 @property (nonatomic, retain) NSValue *year_constructed;
 @property (nonatomic, retain) NSData *photo;
+@property (nonatomic, retain) NSString *info;
 
 @end

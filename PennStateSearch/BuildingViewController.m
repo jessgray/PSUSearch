@@ -14,6 +14,7 @@
 #import "Constants.h"
 #import "DataSource.h"
 #import "MyDataManager.h"
+#import "DataManager.h"
 #import "Building.h"
 
 static NSString * const kTitle = @"Campus Buildings";
@@ -115,10 +116,16 @@ static NSString * const kTitle = @"Campus Buildings";
     } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
         BuildingTextViewController *viewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
         
         viewController.buildingName = building.name;
         viewController.buildingPhoto = building.photo;
+        viewController.infoString = building.info;
+        viewController.completionBlock = ^(id obj) {
+            NSString *newInfo = obj;
+            building.info = newInfo;
+            [[DataManager sharedInstance] saveContext];
+        };
     }
     
 }

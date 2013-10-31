@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BuildingTextViewController : UIViewController
+@interface BuildingTextViewController : UIViewController <UITextViewDelegate>
+
+@property (nonatomic, strong) NSString *infoString;
 @property (nonatomic, strong) NSString *buildingName;
 @property (nonatomic, strong) NSData *buildingPhoto;
+
+@property (nonatomic, copy) CompletionBlock completionBlock;
+
+- (void)updateTextView;
 @end

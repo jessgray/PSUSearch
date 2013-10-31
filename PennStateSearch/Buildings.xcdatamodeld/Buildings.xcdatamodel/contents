@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Building" representedClassName="Building" syncable="YES">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="longitude" attributeType="Float" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -9,6 +10,6 @@
         <attribute name="year_constructed" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Building" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Building" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

@@ -16,5 +16,6 @@
 @dynamic opp_bldg_code;
 @dynamic year_constructed;
 @dynamic photo;
+@dynamic info;
 
 @end
