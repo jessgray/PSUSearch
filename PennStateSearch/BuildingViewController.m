@@ -96,6 +96,7 @@ static NSString * const kTitle = @"Campus Buildings";
 #pragma mark - Editing Table View
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,7 +121,7 @@ static NSString * const kTitle = @"Campus Buildings";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+    return YES;
 }
 
 #pragma mark - Segue
