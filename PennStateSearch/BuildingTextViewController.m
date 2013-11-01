@@ -48,6 +48,7 @@
     
     self.textView.text = self.infoString;
     
+    // Change color of placeholder text if it exists
     if([self.textView.text isEqualToString:[NSString stringWithFormat:@"Add a description for %@", self.buildingName]]) {
         self.textView.textColor = [UIColor lightGrayColor];
     }
