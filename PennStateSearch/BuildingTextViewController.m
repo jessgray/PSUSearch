@@ -48,6 +48,10 @@
     
     self.textView.text = self.infoString;
     
+    if([self.textView.text isEqualToString:[NSString stringWithFormat:@"Add a description for %@", self.buildingName]]) {
+        self.textView.textColor = [UIColor lightGrayColor];
+    }
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -85,10 +89,22 @@
     CGRect frame = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGSize keyboardSize = frame.size;
     self.textView.frame = CGRectMake(0.0, 0.0, self.textView.bounds.size.width, (self.textView.frame.size.height + [[self.navigationController navigationBar] frame].size.height) - keyboardSize.height);
+    
+    // Remove placeholder text
+    if([self.textView.text isEqualToString:[NSString stringWithFormat:@"Add a description for %@", self.buildingName]]) {
+        self.textView.text = @"";
+        self.textView.textColor = [UIColor blackColor];
+    }
 }
 
 - (void)keyboardWillBeHidden: (NSNotification *)notification {
     self.textView.frame = CGRectMake(0.0, 0.0, self.textView.bounds.size.width, self.view.bounds.size.height);
+    
+    // Add placeholder text
+    if([self.textView.text isEqualToString:@""]) {
+        self.textView.text = [NSString stringWithFormat:@"Add a description for %@", self.buildingName];
+        self.textView.textColor = [UIColor lightGrayColor];
+    }
 }
 
 - (void)updateTextView {

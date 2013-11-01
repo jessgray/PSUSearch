@@ -35,6 +35,7 @@
         NSString *photoName = [NSString stringWithFormat:@"%@.jpg", [dictionary objectForKey:@"photo"]];
         UIImage *photoImage = [UIImage imageNamed:photoName];
         building.photo = UIImageJPEGRepresentation(photoImage, 1.0);
+        building.info = [NSString stringWithFormat:@"Add a description for %@", building.name];
     }
     
     [dataManager saveContext];
