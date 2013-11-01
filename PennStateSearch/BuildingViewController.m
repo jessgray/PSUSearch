@@ -132,6 +132,7 @@ static NSString * const kTitle = @"Campus Buildings";
     Building *building = object;
     
     cell.textLabel.text = building.name;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -186,6 +187,9 @@ static NSString * const kTitle = @"Campus Buildings";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self performSegueWithIdentifier:@"InfoSegue" sender:nil];
+    }
     
 }
 
