@@ -234,7 +234,13 @@ shouldReloadTableForSearchString:(NSString *)searchString
             search = [NSString stringWithFormat:@"%@ && (name contains ' ')", searchPredicateString];
             break;
     }
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:search];
+    
+    NSString *finalSearch;
+    if(!self.showingAllBuildings) {
+        finalSearch = [NSString stringWithFormat:@"%@ && (photo != nil)", search];
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:finalSearch];
     [self.dataSource updateWithPredicate:predicate];
     
 }
@@ -251,7 +257,17 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 #pragma mark - Search Bar Delegate
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self.dataSource updateWithPredicate:nil];
+    
+    // Reload tableview with correct buildings
+    NSPredicate *predicate;
+    
+    if(!self.showingAllBuildings){
+        predicate = [NSPredicate predicateWithFormat:@"photo != nil"];
+    } else {
+        predicate = nil;
+    }
+    
+    [_dataSource updateWithPredicate:predicate];
     [self.tableView reloadData];
 }
 
