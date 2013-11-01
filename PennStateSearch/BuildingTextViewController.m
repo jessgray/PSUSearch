@@ -31,18 +31,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.title = self.buildingName;
-    
     NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
     [toolbarButtons addObject:self.editButtonItem];
     
     // Either hide or show photo button
     if(self.buildingPhoto == nil) {
-        [toolbarButtons removeObject:self.photoButton];
+        [self.photoButton setTitle:@"Add Photo"];
+        //[toolbarButtons removeObject:self.photoButton];
     } else {
-        if(![toolbarButtons containsObject:self.photoButton]) {
+        [self.photoButton setTitle:@"Photo"];
+        /*if(![toolbarButtons containsObject:self.photoButton]) {
             [toolbarButtons addObject:self.photoButton];
-        }
+        }*/
     }
     [self.navigationItem setRightBarButtonItems:toolbarButtons];
     
@@ -70,7 +70,15 @@
     
     UIImage *image = [UIImage imageWithData:self.buildingPhoto];
     viewController.selectedBuildingImage = image;
-    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if([self.photoButton.title isEqualToString:@"Photo"]) {
+        return YES;
+    } else {
+        [self getPhoto];
+        return NO;
+    }
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -125,28 +133,34 @@
 }
 
 
+- (void)getPhoto {
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    
+    picker.delegate = self;
+    
+    picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    UIImage* originalImage = nil;
+    originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    if(originalImage==nil)
+    {
+        originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    if(originalImage==nil)
+    {
+        originalImage = [info objectForKey:UIImagePickerControllerCropRect];
+    }
+    
+    self.buildingPhoto = UIImageJPEGRepresentation(originalImage, 1.0);
+    [self.photoButton setTitle:@"Photo"];
+    self.completionBlock(UIImageJPEGRepresentation(originalImage, 1.0));
+}
 
 
 @end

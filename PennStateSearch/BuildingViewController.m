@@ -154,13 +154,18 @@ static NSString * const kTitle = @"Campus Buildings";
         // Use dataSource tableview since it will always be the current one
         NSIndexPath *indexPath = [self.dataSource.tableView indexPathForSelectedRow];
         __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
-        
+
         viewController.buildingName = building.name;
         viewController.buildingPhoto = building.photo;
         viewController.infoString = building.info;
         viewController.completionBlock = ^(id obj) {
-            NSString *newInfo = obj;
-            building.info = newInfo;
+            if([obj isKindOfClass:[NSString class]]) {
+                NSString *newInfo = obj;
+                building.info = newInfo;
+            } else {
+                NSData *newPhoto = obj;
+                building.photo = newPhoto;
+            }
             [[DataManager sharedInstance] saveContext];
         };
     } else if ([segue.identifier isEqualToString:@"AddBuildingSegue"]) {

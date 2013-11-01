@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Building.h"
 
-@interface BuildingTextViewController : UIViewController <UITextViewDelegate>
+@interface BuildingTextViewController : UIViewController <UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSString *infoString;
 @property (nonatomic, strong) NSString *buildingName;
 @property (nonatomic, strong) NSData *buildingPhoto;
-
 @property (nonatomic, copy) CompletionBlock completionBlock;
 
 - (void)updateTextView;
