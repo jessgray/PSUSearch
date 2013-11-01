@@ -109,8 +109,17 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
-    NSDictionary *dictionary = @{@"name":self.nameTextField.text, @"year_constructed":self.yearTextField.text, @"opp_bldg_code":self.bldgCodeTextField.text, @"latitude":self.latTextField.text, @"longitude":self.longTextField.text, @"info":self.infoTextField.text};
-    self.completionBlock(dictionary);
+    
+    if(self.nameTextField.text.length == 0) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error" message:@"A building name must be provided" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [message show];
+    } else {
+        NSDictionary *dictionary = @{@"name":self.nameTextField.text, @"year_constructed":self.yearTextField.text, @"opp_bldg_code":self.bldgCodeTextField.text, @"latitude":self.latTextField.text, @"longitude":self.longTextField.text, @"info":self.infoTextField.text};
+        self.completionBlock(dictionary);
+    }
+    
+    
 }
 
 @end

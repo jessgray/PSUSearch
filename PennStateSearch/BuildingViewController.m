@@ -135,7 +135,9 @@ static NSString * const kTitle = @"Campus Buildings";
         
     } else if ([segue.identifier isEqualToString:@"InfoSegue"]) {
         BuildingTextViewController *viewController = segue.destinationViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        // Use dataSource tableview since it will always be the current one
+        NSIndexPath *indexPath = [self.dataSource.tableView indexPathForSelectedRow];
         __block Building *building = [self.dataSource objectAtIndexPath:indexPath];
         
         viewController.buildingName = building.name;
