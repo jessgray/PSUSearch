@@ -17,6 +17,7 @@
 #import "DataManager.h"
 #import "Building.h"
 #import "AddBuildingTableViewController.h"
+#import "MapViewController.h"
 
 static NSString * const kTitle = @"Campus Buildings";
 
@@ -132,7 +133,12 @@ static NSString * const kTitle = @"Campus Buildings";
     Building *building = object;
     
     cell.textLabel.text = building.name;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (building.longitude == NULL && building.latitude == NULL) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,6 +184,16 @@ static NSString * const kTitle = @"Campus Buildings";
                 [self.myDataManager addBuilding:dictionary];
             }
         };
+    } else if([segue.identifier isEqualToString:@"MapSegue"]) {
+        MapViewController *mapViewController = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.dataSource.tableView indexPathForCell:sender];
+        Building *building = [self.dataSource objectAtIndexPath:indexPath];
+        
+        mapViewController.lat = building.latitude;
+        mapViewController.lon = building.longitude;
+        mapViewController.buildingName = building.name;
+        mapViewController.buildingPhoto = building.photo;
     }
     
 }
@@ -238,6 +254,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
     NSString *finalSearch;
     if(!self.showingAllBuildings) {
         finalSearch = [NSString stringWithFormat:@"%@ && (photo != nil)", search];
+    } else {
+        finalSearch = [NSString stringWithString:search];
     }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:finalSearch];

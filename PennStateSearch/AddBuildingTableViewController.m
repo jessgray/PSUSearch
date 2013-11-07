@@ -115,7 +115,13 @@
         
         [message show];
     } else {
-        NSDictionary *dictionary = @{@"name":self.nameTextField.text, @"year_constructed":self.yearTextField.text, @"opp_bldg_code":self.bldgCodeTextField.text, @"latitude":self.latTextField.text, @"longitude":self.longTextField.text, @"info":self.infoTextField.text};
+        NSString *info;
+        if(self.infoTextField.text.length == 0) {
+            info = [NSString stringWithFormat:@"Add a description for %@", self.nameTextField.text];
+        } else {
+            info = [NSString stringWithString:self.infoTextField.text];
+        }
+        NSDictionary *dictionary = @{@"name":self.nameTextField.text, @"year_constructed":self.yearTextField.text, @"opp_bldg_code":self.bldgCodeTextField.text, @"latitude":self.latTextField.text, @"longitude":self.longTextField.text, @"info":info};
         self.completionBlock(dictionary);
     }
     

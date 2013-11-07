@@ -83,6 +83,10 @@
 		1EC8FADF18077FA1007FC5D2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FADE18077FA1007FC5D2 /* Default-568h@2x.png */; };
 		1EC8FAE5180780DD007FC5D2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAE4180780DD007FC5D2 /* icon@2x.png */; };
 		1EC8FAE7180780E2007FC5D2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC8FAE6180780E2007FC5D2 /* icon.png */; };
+		1EFC4A62182C370F00471A50 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFC4A61182C370F00471A50 /* MapViewController.m */; };
+		1EFC4A64182C381F00471A50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFC4A63182C381F00471A50 /* MapKit.framework */; };
+		1EFC4A66182C3A0200471A50 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFC4A65182C3A0200471A50 /* CoreLocation.framework */; };
+		1EFC4A68182C50CE00471A50 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFC4A67182C50CD00471A50 /* AddressBook.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +197,11 @@
 		1EC8FADE18077FA1007FC5D2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		1EC8FAE4180780DD007FC5D2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		1EC8FAE6180780E2007FC5D2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		1EFC4A60182C370F00471A50 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		1EFC4A61182C370F00471A50 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		1EFC4A63182C381F00471A50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1EFC4A65182C3A0200471A50 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1EFC4A67182C50CD00471A50 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +209,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EFC4A68182C50CE00471A50 /* AddressBook.framework in Frameworks */,
+				1EFC4A66182C3A0200471A50 /* CoreLocation.framework in Frameworks */,
+				1EFC4A64182C381F00471A50 /* MapKit.framework in Frameworks */,
 				1EC616FE1816146400AF886A /* CoreData.framework in Frameworks */,
 				1E0CE9B517FCBBDF00CA1E56 /* UIKit.framework in Frameworks */,
 				1E0CE9B717FCBBDF00CA1E56 /* Foundation.framework in Frameworks */,
@@ -235,6 +247,9 @@
 		1E0CE9B317FCBBDF00CA1E56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EFC4A67182C50CD00471A50 /* AddressBook.framework */,
+				1EFC4A65182C3A0200471A50 /* CoreLocation.framework */,
+				1EFC4A63182C381F00471A50 /* MapKit.framework */,
 				1EC616FD1816146400AF886A /* CoreData.framework */,
 				1E0CE9B417FCBBDF00CA1E56 /* UIKit.framework */,
 				1E0CE9B617FCBBDF00CA1E56 /* Foundation.framework */,
@@ -401,6 +416,8 @@
 				1EB7D32A180F9DE100881E80 /* BuildingPreferencesViewController.m */,
 				1EAB85671823048A0046D3B7 /* AddBuildingTableViewController.h */,
 				1EAB85681823048A0046D3B7 /* AddBuildingTableViewController.m */,
+				1EFC4A60182C370F00471A50 /* MapViewController.h */,
+				1EFC4A61182C370F00471A50 /* MapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -561,6 +578,7 @@
 				1EC61715181638BF00AF886A /* Building+Name.m in Sources */,
 				1EAA69D91822EAD800B709F3 /* BuildingTextViewController.m in Sources */,
 				1EAB85691823048A0046D3B7 /* AddBuildingTableViewController.m in Sources */,
+				1EFC4A62182C370F00471A50 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
