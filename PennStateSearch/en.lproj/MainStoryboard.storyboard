@@ -821,7 +821,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="TMX-EM-MtJ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="TMX-EM-MtJ">
                                 <connections>
                                     <outlet property="delegate" destination="vko-xs-qts" id="czz-6R-ts4"/>
                                 </connections>
@@ -838,6 +838,7 @@
                     <navigationItem key="navigationItem" id="w71-pq-68P"/>
                     <connections>
                         <outlet property="mapView" destination="TMX-EM-MtJ" id="tW4-Hs-pRW"/>
+                        <segue destination="70D-n5-QRY" kind="push" identifier="MapToPhotoSegue" id="z0F-h8-Yh2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z3X-hz-Jaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -921,4 +922,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="z0F-h8-Yh2"/>
+    </inferredMetricsTieBreakers>
 </document>

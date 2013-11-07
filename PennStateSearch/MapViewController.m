@@ -7,8 +7,9 @@
 //
 
 #import "MapViewController.h"
+#import "BuildingInfoViewController.h"
 
-#define kDistance 1000
+#define kDistance 500
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -83,6 +84,21 @@
     
     return annoView;
 }
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    [self performSegueWithIdentifier:@"MapToPhotoSegue" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"MapToPhotoSegue"]) {
+        BuildingInfoViewController *buildingPhotoController = segue.destinationViewController;
+        buildingPhotoController.selectedBuilding = self.buildingName;
+        
+        UIImage *image = [UIImage imageWithData:self.buildingPhoto];
+        buildingPhotoController.selectedBuildingImage = image;
+    }
+}
+
 
 
 
